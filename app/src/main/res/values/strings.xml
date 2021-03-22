@@ -5,7 +5,8 @@
     <string name="nav_header_title">Yo Dono</string>
     <string name="nav_header_subtitle">Bienvenido</string>
     <string name="nav_header_desc">Navigation header</string>
-    <string name="action_settings">Settings</string>
+    <string name="action_settings">Configuracion</string>
+    <string name="action_info">Informacion</string>
 
     <string name="menu_home">Inicio</string>
     <string name="menu_gallery">Nueva Solicitud</string>
