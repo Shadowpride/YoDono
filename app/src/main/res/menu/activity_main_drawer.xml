@@ -6,40 +6,40 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_home"
-            android:icon="@drawable/ic_menu_camera"
+
             android:title="@string/menu_home" />
         <item
             android:id="@+id/nav_gallery"
-            android:icon="@drawable/ic_menu_gallery"
+
             android:title="@string/menu_gallery" />
         <item
             android:id="@+id/nav_slideshow"
-            android:icon="@drawable/ic_menu_slideshow"
+
             android:title="Mis Solicitudes"
             tools:ignore="DuplicateIds" />
         <item
             android:id="@+id/nav_slideshow"
-            android:icon="@drawable/ic_menu_slideshow"
+
             android:title="Buscar Donantes"
             tools:ignore="DuplicateIds" />
         <item
             android:id="@+id/nav_slideshow"
-            android:icon="@drawable/ic_menu_slideshow"
+
             android:title="@string/menu_slideshow"
             tools:ignore="DuplicateIds" />
         <item
             android:id="@+id/nav_slideshow"
-            android:icon="@drawable/ic_menu_slideshow"
+
             android:title="Ver centros de donación"
             tools:ignore="DuplicateIds" />
         <item
             android:id="@+id/nav_slideshow"
-            android:icon="@drawable/ic_menu_slideshow"
+
             android:title="Editar mi perfil"
             tools:ignore="DuplicateIds" />
         <item
             android:id="@+id/nav_slideshow"
-            android:icon="@drawable/ic_menu_slideshow"
+
             android:title="Salir"
             tools:ignore="DuplicateIds" />
     </group>
