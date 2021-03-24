@@ -11,4 +11,15 @@
     <string name="menu_home">Inicio</string>
     <string name="menu_gallery">Nueva Solicitud</string>
     <string name="menu_slideshow">Informacion</string>
+
+
+    <string name="campo_nombre">Nombre:</string>
+    <string name="campo_fecha_nacimiento">Fecha Nacimiento:</string>
+    <string name="campo_telefono">Telefono:</string>
+    <string name="campo_email">E-Mail:</string>
+    <string name="campo_descripcion_contacto">Apellido:</string>
+    <string name="texto_boton_confirmar">Enviar Datos</string>
+    <string name="titulo_confirmar_datos">Confirmar Datos</string>
+    <string name="boton_modificar">Modificar</string>
+    <string name="formulario_datos_persona">Formulario Datos Persona</string>
 </resources>
