@@ -7,12 +7,15 @@
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Configuracion</string>
     <string name="action_info">Informacion</string>
+    <string name="bienvenida">Bienvenido al primer sistema centralizado de recepción de donaciones de sangre.</string>
+    <string name="inicio_sesion">Iniciar sesión</string>
+    <string name="registro">Quiero registrarme</string>
+
 
     <string name="menu_home">Inicio</string>
     <string name="menu_gallery">Nueva Solicitud</string>
     <string name="menu_slideshow">Informacion</string>
 
-<<<<<<< Updated upstream
 
     <string name="campo_nombre">Nombre:</string>
     <string name="campo_fecha_nacimiento">Fecha Nacimiento:</string>
@@ -23,7 +26,7 @@
     <string name="titulo_confirmar_datos">Confirmar Datos</string>
     <string name="boton_modificar">Modificar</string>
     <string name="formulario_datos_persona">Formulario Datos Persona</string>
-=======
+    =======
     <string name="title_activity_login">LoginActivity</string>
     <string name="prompt_email">Email</string>
     <string name="prompt_password">Password</string>
@@ -34,5 +37,5 @@
     <string name="invalid_password">Password must be >5 characters</string>
     <string name="login_failed">"Login failed"</string>
 
->>>>>>> Stashed changes
+    >>>>>>> Stashed changes
 </resources>
