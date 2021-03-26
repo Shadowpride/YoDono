@@ -39,10 +39,18 @@
     <string name="registro_grupo_sanguineo">Grupo Sanguineo</string>
     <string name="registro_siguiente">Siguiente paso</string>
     <string name="registro_enviar">Enviar</string>
+    <string name="prompt_edad">Edad</string>
+    <string name="prompt_fecha_limite">Fecha limite</string>
+    <string name="prompt_hospital">Hospital</string>
+    <string name="prompt_donantes">Cantidad de donantes</string>
+    <string name="prompt_motivo">Motivo</string>
 
     <string name="perfil_editar">Editar</string>
     <string name="perfil_cancelar">Cancelar</string>
     <string name="perfil_aplicar">Aplicar</string>
+    <string name="solicitar_aceptar">Aceptar</string>
+
+
 
 
     <string-array name="array_departamentos">
