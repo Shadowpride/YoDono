@@ -1,8 +1,10 @@
 package uy.yodono;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Menu;
+import android.widget.Button;
 import android.widget.ImageView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -22,6 +24,8 @@ import androidx.appcompat.widget.Toolbar;
 public class MainActivity extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
+
+    Button boton_login, boton_registrar;
 
     // Para cargar el carrusel bienvenida
     CarouselView carouselView;
@@ -66,6 +70,27 @@ public class MainActivity extends AppCompatActivity {
         carouselView = findViewById(R.id.carouselView);
         carouselView.setPageCount(sampleImages.length);
         carouselView.setImageListener(imageListener);
+
+
+        boton_login = (Button)findViewById(R.id.boton_inicio_sesion);
+
+        boton_login.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(MainActivity.this,LoginScreen.class);
+                startActivity(i);
+            }
+        });
+
+        boton_registrar = (Button)findViewById(R.id.boton_registro);
+
+        boton_registrar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(MainActivity.this, RegistroPaso_1.class);
+                startActivity(i);
+            }
+        });
     }
 
     @Override
@@ -81,6 +106,4 @@ public class MainActivity extends AppCompatActivity {
         return NavigationUI.navigateUp(navController, mAppBarConfiguration)
                 || super.onSupportNavigateUp();
     }
-
-
 }

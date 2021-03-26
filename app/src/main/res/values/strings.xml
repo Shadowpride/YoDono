@@ -29,13 +29,58 @@
     =======
     <string name="title_activity_login">LoginActivity</string>
     <string name="prompt_email">Email</string>
-    <string name="prompt_password">Password</string>
+    <string name="prompt_cedula">Cédula de identidad</string>
+    <string name="prompt_contrasena">Contraseña</string>
+    <string name="prompt_contrasena_confirmacion">Repita su contraseña</string>
+    <string name="prompt_registro_nombre">Nombre</string>
+    <string name="prompt_registro_apellido">Apellido</string>
+    <string name="prompt_registro_email">Email</string>
+    <string name="prompt_registro_telefono">Número de teléfono</string>
+    <string name="registro_departamento">Departamento</string>
+    <string name="registro_grupo_sanguineo">Grupo Sanguineo</string>
+    <string name="registro_siguiente">Siguiente paso</string>
+    <string name="registro_enviar">Enviar</string>
     <string name="action_sign_in">Sign in or register</string>
     <string name="action_sign_in_short">Sign in</string>
     <string name="welcome">"Welcome !"</string>
     <string name="invalid_username">Not a valid username</string>
     <string name="invalid_password">Password must be >5 characters</string>
     <string name="login_failed">"Login failed"</string>
+
+    <string-array name="array_departamentos">
+        <item>Artigas</item>
+        <item>Canelones</item>
+        <item>Cerro Largo</item>
+        <item>Colonia</item>
+        <item>Durazno</item>
+        <item>Flores</item>
+        <item>Florida</item>
+        <item>Lavalleja</item>
+        <item>Maldonado</item>
+        <item>Montevideo</item>
+        <item>Paysandú</item>
+        <item>Río Negro</item>
+        <item>Rivera</item>
+        <item>Rocha</item>
+        <item>Salto</item>
+        <item>San José</item>
+        <item>Soriano</item>
+        <item>Tacuarembó</item>
+        <item>Treinta y Tres </item>
+    </string-array>
+
+
+    <string-array name="array_grupos_sanguineos">
+        <item>O-</item>
+        <item>O+</item>
+        <item>A-</item>
+        <item>A+</item>
+        <item>B-</item>
+        <item>B+</item>
+        <item>AB-</item>
+        <item>AB+</item>
+        <item>No estoy seguro</item>
+    </string-array>
 
     >>>>>>> Stashed changes
 </resources>
