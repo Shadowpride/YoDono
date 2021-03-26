@@ -14,7 +14,6 @@ public class LoginScreen extends AppCompatActivity {
 
     Button boton_iniciar_sesion;
 
-
     private AppBarConfiguration mAppBarConfiguration;
 
     @Override
@@ -31,7 +30,7 @@ public class LoginScreen extends AppCompatActivity {
             public void onClick(View v) {
                 //Log.d("Credenciales", cedula.getText().toString());
                 //Log.d("Credenciales", contrasena.getText().toString());
-                Intent i = new Intent(LoginScreen.this, SolicitudNueva.class);
+                Intent i = new Intent(LoginScreen.this, MainActivity.class);
                 startActivity(i);
             }
         });

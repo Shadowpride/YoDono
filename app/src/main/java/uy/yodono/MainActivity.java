@@ -25,72 +25,32 @@ public class MainActivity extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
 
-    Button boton_login, boton_registrar;
-
-    // Para cargar el carrusel bienvenida
-    CarouselView carouselView;
-    int[] sampleImages = {R.drawable.welcome_dona, R.drawable.welcome_pedi, R.drawable.welcome_encontra };
-
-    ImageListener imageListener = new ImageListener() {
-        @Override
-        public void setImageForPosition(int position, ImageView imageView) {
-            imageView.setImageResource(sampleImages[position]);
-            imageView.setScaleType(ImageView.ScaleType.FIT_XY);
-            imageView.setScaleType(ImageView.ScaleType.FIT_CENTER);
-        }
-    };
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_welcome);
-        //Toolbar toolbar = findViewById(R.id.toolbar);
-        //setSupportActionBar(toolbar);
-        //FloatingActionButton fab = findViewById(R.id.fab);
-        //fab.setOnClickListener(new View.OnClickListener() {
-        //    @Override
-        //    public void onClick(View view) {
-        //        Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-        //                .setAction("Action", null).show();
-        //    }
-        //});
-        //DrawerLayout drawer = findViewById(R.id.drawer_layout);
-        //NavigationView navigationView = findViewById(R.id.nav_view);
+        setContentView(R.layout.activity_main);
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        FloatingActionButton fab = findViewById(R.id.fab);
+        fab.setOnClickListener(new View.OnClickListener() {
+           @Override
+            public void onClick(View view) {
+               Intent i = new Intent(MainActivity.this, SolicitudNueva.class);
+               startActivity(i);
+            }
+        });
+        DrawerLayout drawer = findViewById(R.id.drawer_layout);
+        NavigationView navigationView = findViewById(R.id.nav_view);
         //// Passing each menu ID as a set of Ids because each
         //// menu should be considered as top level destinations.
-        //mAppBarConfiguration = new AppBarConfiguration.Builder(
-        //        R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow)
-        //        .setDrawerLayout(drawer)
-        //        .build();
-        //NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
-        //NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
-        //NavigationUI.setupWithNavController(navigationView, navController);
+        mAppBarConfiguration = new AppBarConfiguration.Builder(
+                R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow)
+                .setDrawerLayout(drawer)
+                .build();
+        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
+        NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
+        NavigationUI.setupWithNavController(navigationView, navController);
 
-
-        carouselView = findViewById(R.id.carouselView);
-        carouselView.setPageCount(sampleImages.length);
-        carouselView.setImageListener(imageListener);
-
-
-        boton_login = (Button)findViewById(R.id.boton_inicio_sesion);
-
-        boton_login.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(MainActivity.this,LoginScreen.class);
-                startActivity(i);
-            }
-        });
-
-        boton_registrar = (Button)findViewById(R.id.boton_registro);
-
-        boton_registrar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(MainActivity.this, RegistroPaso_1.class);
-                startActivity(i);
-            }
-        });
     }
 
     @Override
