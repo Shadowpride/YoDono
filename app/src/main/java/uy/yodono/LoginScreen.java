@@ -31,7 +31,7 @@ public class LoginScreen extends AppCompatActivity {
             public void onClick(View v) {
                 //Log.d("Credenciales", cedula.getText().toString());
                 //Log.d("Credenciales", contrasena.getText().toString());
-                Intent i = new Intent(LoginScreen.this, Perfil.class);
+                Intent i = new Intent(LoginScreen.this, SolicitudNueva.class);
                 startActivity(i);
             }
         });

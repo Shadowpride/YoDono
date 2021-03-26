@@ -29,14 +29,14 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Mi Perfil"
+                android:text="Nueva Solicitud"
                 android:textSize="30dp"
                 android:layout_marginBottom="20dp"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Datos personales"
+                android:text="Solicitud de donacion"
                 android:textSize="20dp"
                 android:layout_marginBottom="20dp"/>
 
