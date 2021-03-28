@@ -14,8 +14,8 @@
 
         <ImageView
             android:id="@+id/welcome_logo"
-            android:layout_width="314dp"
-            android:layout_height="150dp"
+            android:layout_width="264dp"
+            android:layout_height="107dp"
             app:srcCompat="@drawable/perfil"
             tools:layout_editor_absoluteX="48dp"
             tools:layout_editor_absoluteY="64dp" />
