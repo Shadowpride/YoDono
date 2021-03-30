@@ -1,14 +1,10 @@
 package uy.yodono;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
-import androidx.navigation.ui.NavigationUI;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -16,7 +12,7 @@ import android.widget.ImageView;
 import com.synnapps.carouselview.CarouselView;
 import com.synnapps.carouselview.ImageListener;
 
-public class welcome extends AppCompatActivity {
+public class Welcome extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
 
@@ -50,7 +46,7 @@ public class welcome extends AppCompatActivity {
         boton_login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(welcome.this,LoginScreen.class);
+                Intent i = new Intent(Welcome.this,LoginScreen.class);
                 startActivity(i);
             }
         });
@@ -60,7 +56,7 @@ public class welcome extends AppCompatActivity {
         boton_registrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(welcome.this, RegistroPaso_1.class);
+                Intent i = new Intent(Welcome.this, RegistroPaso_1.class);
                 startActivity(i);
             }
         });

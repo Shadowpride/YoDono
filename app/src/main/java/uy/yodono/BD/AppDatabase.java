@@ -1,7 +1,10 @@
 package uy.yodono.BD;
 
 
+import android.content.Context;
+
 import androidx.room.Database;
+import androidx.room.Room;
 import androidx.room.RoomDatabase;
 import androidx.room.TypeConverters;
 
@@ -16,8 +19,24 @@ import uy.yodono.daos.SolicitudesDao;
 @TypeConverters({Converters.class})
 public abstract class AppDatabase extends RoomDatabase {
 
-    public abstract DonanteDao donanteDao();
-    public abstract SolicitudesDao solicitudesDao();
+    private static final String DB_NAME = "YoDono.db";
+    private static volatile AppDatabase instance;
 
+    public abstract DonanteDao getDonanteDao();
+    public abstract SolicitudesDao getSolicitudesDao();
+
+    // la DB es un singleton
+    public static AppDatabase getInstance(Context context ) {
+        if ( instance == null ) {
+            instance = create( context );
+        }
+        return instance;
+    }
+
+    //private AppDatabase() {};
+
+    private static AppDatabase create( final Context context ) {
+        return Room.databaseBuilder( context, AppDatabase.class, DB_NAME ).allowMainThreadQueries().build();
+    }
 
 }

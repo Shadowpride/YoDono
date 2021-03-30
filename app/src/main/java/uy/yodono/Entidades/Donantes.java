@@ -4,9 +4,12 @@ import androidx.annotation.NonNull;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
+import java.io.Serializable;
+
 //Creo la entidad(Tabla) Donantes
+// M.N: implemento Serializable para poder pasar la instancia como parámetro de un intent
 @Entity
-public class Donantes {
+public class Donantes implements Serializable {
 
     @PrimaryKey // Selecciono CI como Primary key
     @NonNull
@@ -17,7 +20,24 @@ public class Donantes {
     private String apellido;
     private int telefono;
     private String departamento;
-    private String grupo_Sanguineo;
+
+    public String getGrupo_sanguineo() {
+        return grupo_sanguineo;
+    }
+
+    private String grupo_sanguineo;
+
+
+    public Donantes( int ci, String passwd, String email, String nombre, String apellido, int telefono, String departamento, String grupo_sanguineo ) {
+        this.ci = ci;
+        this.passwd = passwd;
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.telefono = telefono;
+        this.departamento = departamento;
+        this.grupo_sanguineo = grupo_sanguineo;
+    }
+
 
     //Getters and Setters
 
@@ -64,9 +84,9 @@ public class Donantes {
         this.departamento = departamento;
     }
     public String getGrupo_Sanguineo() {
-        return grupo_Sanguineo;
+        return grupo_sanguineo;
     }
     public void setGrupo_Sanguineo(String grupo_Sanguineo) {
-        this.grupo_Sanguineo = grupo_Sanguineo;
+        this.grupo_sanguineo = grupo_Sanguineo;
     }
 }

@@ -17,6 +17,9 @@ public interface DonanteDao {
     void Modificar(Donantes donante);
 
     @Query("SELECT * FROM Donantes WHERE ci = :ci")
-    Donantes buscarDon(String ci);
+    Donantes buscarDonante(String ci);
+
+    @Query("SELECT * FROM Donantes WHERE ci = :ci and passwd = :passwd")
+    Donantes getDonante( String ci, String passwd );
 
 }
