@@ -60,6 +60,8 @@ public class RegistroPaso_1 extends AppCompatActivity {
                     else
                     {
                         Intent i = new Intent(RegistroPaso_1.this, RegistroPaso_2.class);
+                        i.putExtra("Cedula", cedula);
+                        i.putExtra("Contrasena", contrasena);
                         startActivity(i);
                     }
                 }
