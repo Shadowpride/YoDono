@@ -13,12 +13,12 @@ public class Donantes implements Serializable {
 
     @PrimaryKey // Selecciono CI como Primary key
     @NonNull
-    private int ci;
+    private String ci;
     private String passwd;
     private String email;
     private String nombre;
     private String apellido;
-    private int telefono;
+    private String telefono;
     private String departamento;
 
     public String getGrupo_sanguineo() {
@@ -28,7 +28,7 @@ public class Donantes implements Serializable {
     private String grupo_sanguineo;
 
 
-    public Donantes( int ci, String passwd, String email, String nombre, String apellido, int telefono, String departamento, String grupo_sanguineo ) {
+    public Donantes( String ci, String passwd, String email, String nombre, String apellido, String telefono, String departamento, String grupo_sanguineo ) {
         this.ci = ci;
         this.passwd = passwd;
         this.nombre = nombre;
@@ -41,10 +41,10 @@ public class Donantes implements Serializable {
 
     //Getters and Setters
 
-    public int getCi() {
+    public String getCi() {
         return ci;
     }
-    public void setCi(int ci) {
+    public void setCi(String ci) {
         this.ci = ci;
     }
     public String getPasswd() {
@@ -71,10 +71,10 @@ public class Donantes implements Serializable {
     public void setApellido(String apellido) {
         this.apellido = apellido;
     }
-    public int getTelefono() {
+    public String getTelefono() {
         return telefono;
     }
-    public void setTelefono(int telefono) {
+    public void setTelefono(String telefono) {
         this.telefono = telefono;
     }
     public String getDepartamento() {

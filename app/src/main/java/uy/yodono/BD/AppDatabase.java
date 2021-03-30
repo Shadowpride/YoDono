@@ -15,7 +15,7 @@ import uy.yodono.daos.DonanteDao;
 import uy.yodono.daos.SolicitudesDao;
 
 
-@Database(entities = {Donantes.class, Solicitudes.class}, version = 1)
+@Database(entities = {Donantes.class, Solicitudes.class}, version = 2)
 @TypeConverters({Converters.class})
 public abstract class AppDatabase extends RoomDatabase {
 
@@ -38,5 +38,6 @@ public abstract class AppDatabase extends RoomDatabase {
     private static AppDatabase create( final Context context ) {
         return Room.databaseBuilder( context, AppDatabase.class, DB_NAME ).allowMainThreadQueries().build();
     }
+
 
 }

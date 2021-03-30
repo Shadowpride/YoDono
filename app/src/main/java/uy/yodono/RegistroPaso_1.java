@@ -63,6 +63,7 @@ public class RegistroPaso_1 extends AppCompatActivity {
                         i.putExtra("Cedula", cedula);
                         i.putExtra("Contrasena", contrasena);
                         startActivity(i);
+                        finish();
                     }
                 }
                 else

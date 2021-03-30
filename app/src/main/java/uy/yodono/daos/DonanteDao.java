@@ -11,7 +11,7 @@ import uy.yodono.Entidades.Donantes;
 public interface DonanteDao {
 
     @Insert
-    void agregar(Donantes donante);
+    void Agregar(Donantes donante);
 
     @Update
     void Modificar(Donantes donante);
