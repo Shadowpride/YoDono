@@ -41,8 +41,8 @@ public class LoginScreen extends AppCompatActivity {
                 EditText text_cedula = (EditText) findViewById(R.id.text_login_cedula);
                 EditText text_contrasena = (EditText) findViewById(R.id.text_login_contrasena);
 
-                String cedula = text_cedula.toString();
-                String contrasena = text_contrasena.toString();
+                String cedula = text_cedula.getText().toString();
+                String contrasena = text_contrasena.getText().toString();
 
                 Donantes donante = db.getDonante( cedula, contrasena );
                 if ( donante != null )
