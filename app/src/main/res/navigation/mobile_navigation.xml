@@ -15,11 +15,11 @@
         android:id="@+id/nav_gallery"
         android:name="uy.yodono.ui.gallery.GalleryFragment"
         android:label="@string/menu_gallery"
-        tools:layout="@layout/fragment_gallery" />
+        tools:layout="@layout/activity_solicitud_nueva" />
 
     <fragment
         android:id="@+id/nav_slideshow"
         android:name="uy.yodono.ui.slideshow.SlideshowFragment"
-        android:label="@string/menu_slideshow"
-        tools:layout="@layout/fragment_slideshow" />
+        android:label="Perfil"
+        tools:layout="@layout/activity_perfil" />
 </navigation>
