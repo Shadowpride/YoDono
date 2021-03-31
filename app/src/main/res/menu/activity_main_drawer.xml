@@ -9,38 +9,32 @@
 
             android:title="@string/menu_home" />
         <item
-            android:id="@+id/nav_gallery"
+            android:id="@+id/nav_solicitud"
 
             android:title="@string/menu_gallery" />
         <item
-            android:id="@+id/nav_slideshow"
+            android:id="@+id/nav_mi_solicitud"
 
-            android:title="Mis Solicitudes"
-            tools:ignore="DuplicateIds" />
+            android:title="Mis Solicitudes" />
         <item
-            android:id="@+id/nav_slideshow"
+            android:id="@+id/nav_buscar_donante"
 
-            android:title="Buscar Donantes"
-            tools:ignore="DuplicateIds" />
+            android:title="Buscar Donantes" />
         <item
-            android:id="@+id/nav_slideshow"
+            android:id="@+id/nav_info"
 
-            android:title="@string/menu_slideshow"
-            tools:ignore="DuplicateIds" />
+            android:title="@string/menu_slideshow" />
         <item
-            android:id="@+id/nav_slideshow"
+            android:id="@+id/nav_centros"
 
-            android:title="Ver centros de donación"
-            tools:ignore="DuplicateIds" />
+            android:title="Ver centros de donación" />
         <item
-            android:id="@+id/nav_slideshow"
+            android:id="@+id/nav_perfil"
 
-            android:title="Editar mi perfil"
-            tools:ignore="DuplicateIds" />
+            android:title="Editar mi perfil" />
         <item
-            android:id="@+id/nav_slideshow"
+            android:id="@+id/nav_salir"
 
-            android:title="Salir"
-            tools:ignore="DuplicateIds" />
+            android:title="Salir" />
     </group>
 </menu>
