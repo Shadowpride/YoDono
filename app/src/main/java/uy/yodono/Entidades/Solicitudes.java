@@ -22,6 +22,16 @@ public class Solicitudes {
     private String departamento;
     private String Ci_Don;
 
+    public Solicitudes(String cedula, String email, String nombre, String apellido, String edad, String departamento, String grupo_sanguineo, String fecha, String hospital, String cantidad, String motivo) {
+        this.ci = ci;
+        this.passwd = passwd;
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.telefono = telefono;
+        this.departamento = departamento;
+        this.grupo_sanguineo = grupo_sanguineo;
+    }
+
     //Getters and Setters
     public int getId() {
         return id;

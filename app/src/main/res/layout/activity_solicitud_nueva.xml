@@ -36,10 +36,13 @@
             android:text="Solicitud de donacion"
             android:textSize="20dp" />
     </LinearLayout>
-    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    <LinearLayout
+        android:id="@+id/linear"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:fillViewport="true"
+        android:layout_margin="20dp"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         >
         <LinearLayout
@@ -153,7 +156,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
         </LinearLayout>
-    </ScrollView>
+    </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
