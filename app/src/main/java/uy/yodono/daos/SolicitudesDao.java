@@ -17,9 +17,8 @@ public interface SolicitudesDao {
     @Update
     void actualizar(Solicitudes solicitud);
 
-    @Query("SELECT * FROM Solicitudes where Ci_Don = :ci")
-    Solicitudes buscarCI(int ci);
-
+    @Query("SELECT * FROM Solicitudes where cedula = :cedula")
+    Solicitudes buscarSolicitudPorCI(int ci);
 
 
 }

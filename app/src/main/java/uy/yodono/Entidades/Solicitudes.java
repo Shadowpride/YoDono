@@ -14,70 +14,119 @@ public class Solicitudes {
 
     @PrimaryKey(autoGenerate = true)
     private int id;
+
+    // Datos personales
+    private String cedula;
+    private String nombre;
+    private String apellido;
+    private String edad;
+    private String grupo_sanguineo;
+
+    // Datos de la solicitud
     private String hospital;
-    private String grupo_Sanguineo;
-    private Date fecha_Limite;
+    private String fecha_limite;
     private String motivo;
-    private int cantidad_Donantes;
+    private String cantidad_donantes;
     private String departamento;
-    private String Ci_Don;
 
-    //public Solicitudes(String cedula, String email, String nombre, String apellido, String edad, String departamento, String grupo_sanguineo, String fecha, String hospital, String cantidad, String motivo) {
-        //this.ci = ci;
-        //this.passwd = passwd;
-        //this.nombre = nombre;
-        //this.apellido = apellido;
-        //this.telefono = telefono;
-        //this.departamento = departamento;
-        //this.grupo_sanguineo = grupo_sanguineo;
-    //}
+    public Solicitudes(String cedula, String nombre, String apellido, String edad, String grupo_sanguineo, String hospital, String fecha_Limite, String motivo, String cantidad_donantes, String departamento ) {
 
-    //Getters and Setters
+        this.cedula = cedula;
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.edad = edad;
+        this.grupo_sanguineo = grupo_sanguineo;
+        this.hospital = hospital;
+        this.fecha_limite = fecha_Limite;
+        this.motivo = motivo;
+        this.cantidad_donantes = cantidad_donantes;
+        this.departamento = departamento;
+    }
+
     public int getId() {
         return id;
     }
-    public String getCi_Don() {
-        return Ci_Don;
-    }
-    public void setCi_Don(String ci_Don) {
-        Ci_Don = ci_Don;
-    }
+
     public void setId(int id) {
         this.id = id;
     }
+
+    public String getCedula() {
+        return cedula;
+    }
+
+    public void setCedula(String cedula) {
+        this.cedula = cedula;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getApellido() {
+        return apellido;
+    }
+
+    public void setApellido(String apellido) {
+        this.apellido = apellido;
+    }
+
+    public String getEdad() {
+        return edad;
+    }
+
+    public void setEdad(String edad) {
+        this.edad = edad;
+    }
+
+    public String getGrupo_sanguineo() {
+        return grupo_sanguineo;
+    }
+
+    public void setGrupo_sanguineo(String grupo_sanguineo) {
+        this.grupo_sanguineo = grupo_sanguineo;
+    }
+
     public String getHospital() {
         return hospital;
     }
+
     public void setHospital(String hospital) {
         this.hospital = hospital;
     }
-    public String getGrupo_Sanguineo() {
-        return grupo_Sanguineo;
+
+    public String getFecha_limite() {
+        return fecha_limite;
     }
-    public void setGrupo_Sanguineo(String grupo_Sanguineo) {
-        this.grupo_Sanguineo = grupo_Sanguineo;
+
+    public void setFecha_limite(String fecha_limite) {
+        this.fecha_limite = fecha_limite;
     }
-    public Date getFecha_Limite() {
-        return fecha_Limite;
-    }
-    public void setFecha_Limite(Date fecha_Limite) {
-        this.fecha_Limite = fecha_Limite;
-    }
+
     public String getMotivo() {
         return motivo;
     }
+
     public void setMotivo(String motivo) {
         this.motivo = motivo;
     }
-    public int getCantidad_Donantes() {
-        return cantidad_Donantes;
+
+    public String getCantidad_donantes() {
+        return cantidad_donantes;
     }
-    public void setCantidad_Donantes(int cantidad_Donantes) {
-        this.cantidad_Donantes = cantidad_Donantes;
+
+    public void setCantidad_donantes(String cantidad_donantes) {
+        this.cantidad_donantes = cantidad_donantes;
     }
+
     public String getDepartamento() {
         return departamento;
     }
+
     public void setDepartamento(String departamento) {
         this.departamento = departamento;
     }

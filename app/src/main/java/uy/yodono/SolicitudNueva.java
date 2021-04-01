@@ -28,7 +28,6 @@ public class SolicitudNueva extends AppCompatActivity {
     EditText text_ci;
     EditText text_nombre;
     EditText text_apellido;
-    EditText text_email;
     EditText text_edad;
     EditText text_fecha_limite;
     EditText text_hospital;
@@ -71,7 +70,6 @@ public class SolicitudNueva extends AppCompatActivity {
                 text_ci = (EditText)findViewById(R.id.text_registro_cedula);
                 text_nombre = (EditText)findViewById(R.id.text_registro_nombre);
                 text_apellido = (EditText)findViewById(R.id.text_registro_apellido);
-                text_email = (EditText)findViewById(R.id.text_registro_email);
                 text_edad = (EditText)findViewById(R.id.text_edad);
                 text_fecha_limite = (EditText)findViewById(R.id.text_fecha_limite);
                 text_hospital = (EditText)findViewById(R.id.text_hospital);
@@ -81,7 +79,6 @@ public class SolicitudNueva extends AppCompatActivity {
                 String cedula = text_ci.getText().toString();
                 String nombre = text_nombre.getText().toString();
                 String apellido = text_apellido.getText().toString();
-                String email = text_email.getText().toString();
                 String edad = text_edad.getText().toString();
                 String fecha = text_fecha_limite.getText().toString();
                 String hospital = text_hospital.getText().toString();
@@ -90,18 +87,18 @@ public class SolicitudNueva extends AppCompatActivity {
                 String departamento = spinner_departamentos.getSelectedItem().toString();
                 String grupo_sanguineo = spinner_grupos_sanguineos.getSelectedItem().toString();
 
-                if (nombre.isEmpty() || apellido.isEmpty() || email.isEmpty() || cedula.isEmpty() || edad.isEmpty() || fecha.isEmpty() || hospital.isEmpty() || cantidad.isEmpty() || motivo.isEmpty() )
+                if (nombre.isEmpty() || apellido.isEmpty() || cedula.isEmpty() || edad.isEmpty() || fecha.isEmpty() || hospital.isEmpty() || cantidad.isEmpty() || motivo.isEmpty() )
                 {
                     Toast.makeText(SolicitudNueva.this, "Debe completar todos los datos", Toast.LENGTH_SHORT).show();
                 }
-                else{
-                    //Solicitudes sol_registrar = new Solicitudes(cedula, email, nombre, apellido, edad, departamento, grupo_sanguineo, fecha, hospital ,cantidad, motivo);
-                    //db.agregar(sol_registrar);
+                else
+                {
+                    Solicitudes nueva_solicitud = new Solicitudes( cedula, nombre, apellido, edad, grupo_sanguineo, hospital, fecha, motivo, cantidad, departamento );
+                    db.agregar(nueva_solicitud);
                     Intent i = new Intent(SolicitudNueva.this, MainActivity.class);
                     startActivity(i);
                     finish();
                 }
-
             }
         });
     }
