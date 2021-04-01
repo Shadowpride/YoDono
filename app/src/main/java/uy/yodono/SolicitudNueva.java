@@ -95,8 +95,8 @@ public class SolicitudNueva extends AppCompatActivity {
                     Toast.makeText(SolicitudNueva.this, "Debe completar todos los datos", Toast.LENGTH_SHORT).show();
                 }
                 else{
-                    Solicitudes sol_registrar = new Solicitudes(cedula, email, nombre, apellido, edad, departamento, grupo_sanguineo, fecha, hospital ,cantidad, motivo);
-                    db.agregar(sol_registrar);
+                    //Solicitudes sol_registrar = new Solicitudes(cedula, email, nombre, apellido, edad, departamento, grupo_sanguineo, fecha, hospital ,cantidad, motivo);
+                    //db.agregar(sol_registrar);
                     Intent i = new Intent(SolicitudNueva.this, MainActivity.class);
                     startActivity(i);
                     finish();
