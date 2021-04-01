@@ -2,10 +2,13 @@ package uy.yodono;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.Menu;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
@@ -24,22 +27,24 @@ import androidx.room.Room;
 import androidx.room.RoomDatabase;
 
 import uy.yodono.BD.AppDatabase;
+import uy.yodono.Entidades.Donantes;
 import uy.yodono.daos.DonanteDao;
 
 public class MainActivity extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
 
+    Donantes donante_logueado;
     Button cerrar_sesion;
+    TextView bienvenida;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+            Toolbar toolbar = findViewById(R.id.toolbar);
+            setSupportActionBar(toolbar);
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
            @Override
@@ -50,6 +55,20 @@ public class MainActivity extends AppCompatActivity {
         });
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.nav_view);
+
+
+        Intent intent = getIntent();
+        Bundle bd = intent.getExtras();
+        donante_logueado = (Donantes)bd.get("Donante");
+        String nombre_donante = donante_logueado.getNombre();
+
+        // obtengo el view correspondiente a nav_header_main.xml
+        View headerLayout = navigationView.getHeaderView(0);
+
+        // seteo nombre de donante en menú
+        bienvenida = (TextView) headerLayout.findViewById(R.id.textView);
+        bienvenida.setText( bienvenida.getText() + " " + nombre_donante );
+
         //// Passing each menu ID as a set of Ids because each
         //// menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(

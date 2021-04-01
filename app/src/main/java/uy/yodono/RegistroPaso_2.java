@@ -94,7 +94,7 @@ public class RegistroPaso_2 extends AppCompatActivity {
                         Toast.makeText(RegistroPaso_2.this, "Debe completar todos los datos", Toast.LENGTH_SHORT).show();
                     }
                     else{
-                        Donantes don_registrar = new Donantes(cedula, contrasena, nombre, apellido, email, telefono, departamento, grupo_sanguineo);
+                        Donantes don_registrar = new Donantes(cedula, contrasena, email, nombre, apellido, telefono, departamento, grupo_sanguineo);
 
                         db.Agregar(don_registrar);
                         Log.v("login", "exito");
