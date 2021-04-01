@@ -29,6 +29,7 @@ public class Solicitudes {
     private String cantidad_donantes;
     private String departamento;
 
+    public Solicitudes(){}
     public Solicitudes(String cedula, String nombre, String apellido, String edad, String grupo_sanguineo, String hospital, String fecha_Limite, String motivo, String cantidad_donantes, String departamento ) {
 
         this.cedula = cedula;

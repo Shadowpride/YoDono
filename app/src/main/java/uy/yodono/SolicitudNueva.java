@@ -95,7 +95,7 @@ public class SolicitudNueva extends AppCompatActivity {
                 {
                     Solicitudes nueva_solicitud = new Solicitudes( cedula, nombre, apellido, edad, grupo_sanguineo, hospital, fecha, motivo, cantidad, departamento );
                     db.agregar(nueva_solicitud);
-                    Intent i = new Intent(SolicitudNueva.this, MainActivity.class);
+                    Intent i = new Intent(SolicitudNueva.this, SolicitudNueva.class);
                     startActivity(i);
                     finish();
                 }
