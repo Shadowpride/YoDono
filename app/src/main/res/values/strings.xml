@@ -50,7 +50,7 @@
     <string name="perfil_aplicar">Aplicar</string>
     <string name="solicitar_aceptar">Aceptar</string>
 
-
+    <string name="buscardonante">Buscar donante</string>
 
 
     <string-array name="array_departamentos">
@@ -88,3 +88,4 @@
         <item>No estoy seguro</item>
     </string-array>
 </resources>
+
