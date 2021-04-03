@@ -33,16 +33,15 @@
 
 
     <com.synnapps.carouselview.CarouselView
-        android:layout_marginTop="20dp"
         android:id="@+id/carouselView"
         android:layout_width="match_parent"
-        android:layout_height="150dp"
+        android:layout_height="150dp" />
+        <!--android:layout_marginTop="20dp"
         app:fillColor="#FFFFFFFF"
         app:pageColor="#00000000"
         app:slideInterval="3000"
         app:strokeColor="#FF777777"
-        app:autoPlay="true"
-        />
+        app:autoPlay="true"-->
 
       <LinearLayout
         android:layout_width="match_parent"
