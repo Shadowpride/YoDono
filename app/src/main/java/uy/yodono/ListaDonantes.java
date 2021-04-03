@@ -5,6 +5,7 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.util.Log;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -36,10 +37,10 @@ public class ListaDonantes extends AppCompatActivity {
         elements.add(new ListElementListaDonantes("Juan Carlos Perez","B+","Montevideo"));
 
 
-        ListAdapter listAdapter = new ListAdapter(elements,this);
+        ListAdapter listAdapter = new ListAdapter(elements,ListaDonantes.this);
         RecyclerView recyclerView = findViewById(R.id.ListRecyclerViewBuscarDonantes);
         recyclerView.setHasFixedSize(true);
-        recyclerView.setLayoutManager(new GridLayoutManager(this, 2));
+        recyclerView.setLayoutManager(new GridLayoutManager(ListaDonantes.this, 2));
         recyclerView.setAdapter(listAdapter);
 
     }

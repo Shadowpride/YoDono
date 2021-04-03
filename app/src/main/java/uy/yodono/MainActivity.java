@@ -56,15 +56,14 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle( this, drawer, toolbar,
-                R.string.navigation_drawer_open, R.string.navigation_drawer_close );
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle( this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close );
         drawer.addDrawerListener(toggle);
         toggle.syncState();
 
         //FloatingActionButton fab = findViewById(R.id.fab);
         //fab.setOnClickListener(new View.OnClickListener() {
         //   @Override
-        //    public void onClick(View view) {
+        //    public void onClick(View view)
         //       Intent i = new Intent(MainActivity.this, SolicitudNueva.class);
         //       startActivity(i);
         //    }
