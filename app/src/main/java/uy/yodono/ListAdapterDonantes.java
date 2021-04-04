@@ -11,12 +11,12 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
-public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder>{
+public class ListAdapterDonantes extends RecyclerView.Adapter<ListAdapterDonantes.ViewHolderDonantes>{
     private List<ListElementListaDonantes> mData;
     private LayoutInflater mInflater;
     private Context context;
 
-    public ListAdapter(List<ListElementListaDonantes> itemList, Context context) {
+    public ListAdapterDonantes(List<ListElementListaDonantes> itemList, Context context) {
         this.mInflater = LayoutInflater.from(context);
         this.context = context;
         this.mData = itemList;
@@ -28,23 +28,23 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder>{
 
 
     @Override
-    public ListAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public ListAdapterDonantes.ViewHolderDonantes onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = mInflater.inflate(R.layout.list_element_listadonantes, null);
-        return new ListAdapter.ViewHolder(view);
+        return new ListAdapterDonantes.ViewHolderDonantes(view);
     }
 
     @Override
-    public void onBindViewHolder(final ListAdapter.ViewHolder holder, final int position) {
+    public void onBindViewHolder(final ListAdapterDonantes.ViewHolderDonantes holder, final int position) {
         holder.bindData(mData.get(position));
 
     }
 
     public void setItems(List<ListElementListaDonantes> items) {mData = items;}
 
-    public class ViewHolder extends RecyclerView.ViewHolder {
+    public class ViewHolderDonantes extends RecyclerView.ViewHolder {
         TextView bdname,bdgrupo,bddepartmaento;
 
-        ViewHolder(View itemView){
+        ViewHolderDonantes(View itemView){
             super(itemView);
             bdname = itemView.findViewById(R.id.BDnombreTV);
             bdgrupo = itemView.findViewById(R.id.BDgrupoTV);

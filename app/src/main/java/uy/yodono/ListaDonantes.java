@@ -37,11 +37,11 @@ public class ListaDonantes extends AppCompatActivity {
         elements.add(new ListElementListaDonantes("Juan Carlos Perez","B+","Montevideo"));
 
 
-        ListAdapter listAdapter = new ListAdapter(elements,ListaDonantes.this);
+        ListAdapterDonantes listAdapterDonantes = new ListAdapterDonantes(elements,ListaDonantes.this);
         RecyclerView recyclerView = findViewById(R.id.ListRecyclerViewBuscarDonantes);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new GridLayoutManager(ListaDonantes.this, 2));
-        recyclerView.setAdapter(listAdapter);
+        recyclerView.setAdapter(listAdapterDonantes);
 
     }
 
