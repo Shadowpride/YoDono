@@ -26,7 +26,7 @@ public abstract class AppDatabase extends RoomDatabase {
     public abstract SolicitudesDao getSolicitudesDao();
 
     // la DB es un singleton
-    public static AppDatabase getInstance(Context context ) {
+    public static synchronized AppDatabase getInstance(Context context ) {
         if ( instance == null ) {
             instance = create( context );
         }
