@@ -1,6 +1,7 @@
 package uy.yodono;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.ViewModelProvider;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -21,25 +22,26 @@ public class RegistroPaso_1 extends AppCompatActivity {
     EditText text_contrasena;
     EditText text_contrasena_confirmacion;
 
-    // variables DB
-    DonanteDao db;
-    AppDatabase dataBase;
+
+    private DonantesViewModel donantesViewModel;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registro_paso_1);
 
-        // obtengo instancia de DB
-        dataBase = AppDatabase.getInstance( RegistroPaso_1.this );
-        db = dataBase.getDonanteDao();
-
+        donantesViewModel = new ViewModelProvider( this,
+                ViewModelProvider.AndroidViewModelFactory
+                .getInstance(this.getApplication()))
+                .get(DonantesViewModel.class);
 
 
         boton_registro_siguiente = (Button)findViewById(R.id.boton_registro_siguiente);
         text_cedula = (EditText)findViewById(R.id.text_registro_cedula);
         text_contrasena = (EditText)findViewById(R.id.text_registro_contrasena);
         text_contrasena_confirmacion = (EditText)findViewById(R.id.text_registro_contrasena_confirmacion);
+
 
         boton_registro_siguiente.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -52,7 +54,7 @@ public class RegistroPaso_1 extends AppCompatActivity {
 
                 if ( !cedula.isEmpty() && !contrasena.isEmpty() && contrasena.equals(contrasena_confirmacion) )
                 {
-                    Donantes donante = db.buscarDonante( cedula );
+                    Donantes donante = donantesViewModel.buscarDonante( cedula );
                     if ( donante != null )
                     {
                         Toast.makeText(RegistroPaso_1.this, "Usuario ya registrado.", Toast.LENGTH_SHORT).show();
