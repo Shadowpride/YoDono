@@ -30,6 +30,18 @@ public class DonantesViewModel extends AndroidViewModel {
         repositorio.insert(donante);
     }
 
+    public Donantes buscarDonante( String cedula ) {
+        return repositorio.buscarDonante( cedula );
+    }
+
+    public Donantes buscarDonante( String cedula, String contrasena ) {
+        return repositorio.buscarDonante( cedula );
+    }
+
+    public LiveData<List<Donantes>> getListaOtrosDonantes( String cedula ) {
+        return repositorio.getListaOtrosDonantes( cedula );
+    }
+
     public LiveData<List<Donantes>> getLista_donantes() {
         return lista_donantes;
     }

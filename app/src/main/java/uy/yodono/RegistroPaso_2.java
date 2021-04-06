@@ -1,6 +1,7 @@
 package uy.yodono;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.ViewModelProvider;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -18,9 +19,6 @@ import uy.yodono.daos.DonanteDao;
 
 public class RegistroPaso_2 extends AppCompatActivity {
 
-    // variables DB
-    DonanteDao db;
-    AppDatabase dataBase;
     EditText text_nombre;
     EditText text_apellido;
     EditText text_email;
@@ -28,16 +26,20 @@ public class RegistroPaso_2 extends AppCompatActivity {
 
     Button boton_registro_enviar;
 
+    private DonantesViewModel donantesViewModel;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registro_paso_2);
 
+        donantesViewModel = new ViewModelProvider( this,
+                ViewModelProvider.AndroidViewModelFactory
+                        .getInstance(this.getApplication()))
+                .get(DonantesViewModel.class);
+
         boton_registro_enviar = (Button)findViewById(R.id.boton_registro_enviar);
 
-        // obtengo instancia de DB
-        dataBase = AppDatabase.getInstance( RegistroPaso_2.this );
-        db = dataBase.getDonanteDao();
 
         Spinner spinner_departamentos = (Spinner) findViewById(R.id.spinner_departamentos);
         // Create an ArrayAdapter using the string array and a default spinner layout
@@ -56,8 +58,6 @@ public class RegistroPaso_2 extends AppCompatActivity {
         adapter_grupos_sanguineos.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         // Apply the adapter to the spinner
         spinner_grupos_sanguineos.setAdapter(adapter_grupos_sanguineos);
-
-
 
 
         boton_registro_enviar.setOnClickListener(new View.OnClickListener() {
@@ -94,18 +94,17 @@ public class RegistroPaso_2 extends AppCompatActivity {
                         Toast.makeText(RegistroPaso_2.this, "Debe completar todos los datos", Toast.LENGTH_SHORT).show();
                     }
                     else{
-                        Donantes don_registrar = new Donantes(cedula, contrasena, email, nombre, apellido, telefono, departamento, grupo_sanguineo);
+                        Donantes donante_a_registrar = new Donantes(cedula, contrasena, email, nombre, apellido, telefono, departamento, grupo_sanguineo);
 
-                        db.Agregar(don_registrar);
+                        donantesViewModel.insert( donante_a_registrar );
+                        //db.Agregar(donante_a_registrar
                         Log.v("login", "exito");
                         Intent i = new Intent(RegistroPaso_2.this, MainActivity.class);
-                        i.putExtra("Donante", don_registrar);
+                        i.putExtra("Donante", donante_a_registrar );
                         startActivity(i);
                         finish();
                     }
                 }
-
-
             }
         });
     }

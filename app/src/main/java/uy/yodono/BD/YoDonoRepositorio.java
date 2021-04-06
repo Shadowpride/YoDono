@@ -30,6 +30,18 @@ public class YoDonoRepositorio {
         new UpdateDonanteAsyncTask(donanteDao).execute(donante);
     }
 
+    public Donantes buscarDonante( String cedula ) {
+        return donanteDao.buscarDonante( cedula );
+    }
+
+    public Donantes buscarDonante( String cedula, String contrasena ) {
+        return donanteDao.buscarDonante( cedula );
+    }
+
+    public LiveData<List<Donantes>> getListaOtrosDonantes(String cedula) {
+        return donanteDao.buscarDonantesNotLogged( cedula );
+    }
+
     public LiveData<List<Donantes>> getAllDonantes() {
         return listaDonantes;
     }
