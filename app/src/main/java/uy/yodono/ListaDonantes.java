@@ -26,8 +26,6 @@ public class ListaDonantes extends AppCompatActivity {
 
     private DonantesViewModel donantesViewModel;
 
-    List<ListElementListaDonantes> elements;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
