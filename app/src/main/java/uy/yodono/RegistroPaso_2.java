@@ -97,7 +97,6 @@ public class RegistroPaso_2 extends AppCompatActivity {
                         Donantes donante_a_registrar = new Donantes(cedula, contrasena, email, nombre, apellido, telefono, departamento, grupo_sanguineo);
 
                         donantesViewModel.insert( donante_a_registrar );
-                        //db.Agregar(donante_a_registrar
                         Log.v("login", "exito");
                         Intent i = new Intent(RegistroPaso_2.this, MainActivity.class);
                         i.putExtra("Donante", donante_a_registrar );
