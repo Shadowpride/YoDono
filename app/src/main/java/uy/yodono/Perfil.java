@@ -27,18 +27,18 @@ public class Perfil extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_perfil);
 
-        //donantesViewModel = new ViewModelProvider( this,
-        //        ViewModelProvider.AndroidViewModelFactory
-        //                .getInstance(this.getApplication()))
-        //        .get(DonantesViewModel.class);
+        donantesViewModel = new ViewModelProvider( this,
+                ViewModelProvider.AndroidViewModelFactory
+                       .getInstance(this.getApplication()))
+                .get(DonantesViewModel.class);
 
         //Intent intent = getIntent();
         //Bundle bd = intent.getExtras();
         //donante_logueado = (Donantes)bd.get("Donante");
         //String nombre_donante = donante_logueado.getNombre();
 
-        //nombre = (TextView) findViewById(R.id.text_registro_nombre);
-        //nombre.setText( nombre_donante );
+        //nombre = (TextView) this.findViewById(R.id.text_registro_nombre);
+        //nombre.setText( nombre.getText() + nombre_donante );
 
         boton_perfil_editar = (Button)findViewById(R.id.boton_perfil_editar);
 
