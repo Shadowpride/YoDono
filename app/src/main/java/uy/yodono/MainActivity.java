@@ -41,7 +41,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private AppBarConfiguration mAppBarConfiguration;
 
     Donantes donante_logueado;
-    Button cerrar_sesion;
     TextView bienvenida;
 
     @Override
@@ -99,16 +98,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         //NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         //NavigationUI.setupWithNavController(navigationView, navController);
 
-        //cerrar_sesion = (Button)findViewById(R.id.boton_cerrar_sesion);
-
-        //cerrar_sesion.setOnClickListener(new View.OnClickListener() {
-        //    @Override
-        //    public void onClick(View v) {
-        //        Intent i = new Intent(MainActivity.this, Welcome.class);
-        //        startActivity(i);
-        //        finish();
-        //    }
-        //});
     }
 
     @Override
@@ -133,6 +122,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         {
             case R.id.nav_solicitud:
                 i = new Intent(MainActivity.this, SolicitudNueva.class);
+                startActivity(i);
+                break;
+
+            case R.id.nav_perfil:
+                i = new Intent(MainActivity.this, Perfil.class);
                 startActivity(i);
                 break;
 

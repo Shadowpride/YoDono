@@ -31,10 +31,6 @@
         <item
             android:id="@+id/nav_perfil"
 
-            android:title="Editar mi perfil" />
-        <item
-            android:id="@+id/nav_salir"
-
-            android:title="Salir" />
+            android:title="Perfil de Usuario" />
     </group>
 </menu>

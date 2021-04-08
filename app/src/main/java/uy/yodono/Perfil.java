@@ -1,6 +1,7 @@
 package uy.yodono;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.ViewModelProvider;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -17,19 +18,27 @@ public class Perfil extends AppCompatActivity {
     Donantes donante_logueado;
     TextView nombre;
     Button boton_perfil_editar;
+    Button cerrar_sesion;
+
+    private DonantesViewModel donantesViewModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_perfil);
 
-        Intent intent = getIntent();
-        Bundle bd = intent.getExtras();
-        donante_logueado = (Donantes)bd.get("Donante");
-        String nombre_donante = donante_logueado.getNombre();
+        //donantesViewModel = new ViewModelProvider( this,
+        //        ViewModelProvider.AndroidViewModelFactory
+        //                .getInstance(this.getApplication()))
+        //        .get(DonantesViewModel.class);
 
-        nombre = (TextView) findViewById(R.id.text_registro_nombre);
-        nombre.setText( nombre_donante );
+        //Intent intent = getIntent();
+        //Bundle bd = intent.getExtras();
+        //donante_logueado = (Donantes)bd.get("Donante");
+        //String nombre_donante = donante_logueado.getNombre();
+
+        //nombre = (TextView) findViewById(R.id.text_registro_nombre);
+        //nombre.setText( nombre_donante );
 
         boton_perfil_editar = (Button)findViewById(R.id.boton_perfil_editar);
 
@@ -40,5 +49,17 @@ public class Perfil extends AppCompatActivity {
                 startActivity(i);
             }
         });
+
+        cerrar_sesion = (Button)findViewById(R.id.boton_cerrar_sesion);
+
+        cerrar_sesion.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(Perfil.this, Welcome.class);
+                startActivity(i);
+                finish();
+            }
+        });
+
     }
 }

@@ -107,9 +107,17 @@
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/boton_perfil_editar"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/perfil_editar" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/boton_cerrar_sesion"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Cerrar Sesion"
+                tools:ignore="MissingConstraints" />
+
         </LinearLayout>
 
     </LinearLayout>

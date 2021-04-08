@@ -19,11 +19,4 @@
         app:navGraph="@navigation/mobile_navigation" />
 
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/boton_cerrar_sesion"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Cerrar Sesion"
-        tools:ignore="MissingConstraints" />
-
 </androidx.constraintlayout.widget.ConstraintLayout>

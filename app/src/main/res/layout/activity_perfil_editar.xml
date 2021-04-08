@@ -103,19 +103,21 @@
             android:layout_height="0dip"
             android:layout_weight="1"
             android:gravity="center|bottom"
-            android:orientation="horizontal">
-
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/boton_perfil_cancelar"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/perfil_cancelar" />
+            android:orientation="vertical">
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/boton_perfil_aplicar"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/perfil_aplicar" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/boton_perfil_cancelar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/perfil_cancelar" />
+
+
         </LinearLayout>
 
 
