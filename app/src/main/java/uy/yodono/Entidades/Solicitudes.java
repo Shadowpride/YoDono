@@ -132,4 +132,7 @@ public class Solicitudes {
         this.departamento = departamento;
     }
 
+    public String toString() {
+        return "Solicitud de " + this.getCedula() + " - " + this.departamento + " - " + this.getGrupo_sanguineo() + " - " + this.getFecha_limite();
+    }
 }

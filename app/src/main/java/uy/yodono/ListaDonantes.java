@@ -3,21 +3,15 @@ package uy.yodono;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
-import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
-import android.widget.Toast;
 
-import java.util.ArrayList;
 import java.util.List;
 
-import uy.yodono.BD.AppDatabase;
 import uy.yodono.Entidades.Donantes;
-import uy.yodono.daos.DonanteDao;
 
 public class ListaDonantes extends AppCompatActivity {
 
@@ -46,7 +40,7 @@ public class ListaDonantes extends AppCompatActivity {
                         .getInstance(this.getApplication()))
                 .get(DonantesViewModel.class);
 
-        donantesViewModel.getListaOtrosDonantes( donante_logueado.getCi() ).observe(this, new Observer<List<Donantes>>() {
+        donantesViewModel.getListaOtrosDonantes( donante_logueado.getCedula() ).observe(this, new Observer<List<Donantes>>() {
             @Override
             public void onChanged(List<Donantes> donantes) {
                 adapter.setLista_donantes(donantes);

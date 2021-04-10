@@ -9,6 +9,7 @@ import androidx.lifecycle.LiveData;
 import java.util.List;
 
 import uy.yodono.BD.YoDonoRepositorio;
+import uy.yodono.Entidades.DonanteConSolicitudes;
 import uy.yodono.Entidades.Donantes;
 
 public class DonantesViewModel extends AndroidViewModel {
@@ -40,6 +41,10 @@ public class DonantesViewModel extends AndroidViewModel {
 
     public LiveData<List<Donantes>> getListaOtrosDonantes( String cedula ) {
         return repositorio.getListaOtrosDonantes( cedula );
+    }
+
+    public LiveData<List<DonanteConSolicitudes>> getSolicitudesDonante(String cedula ) {
+        return repositorio.getSolicitudesDonante( cedula );
     }
 
     public LiveData<List<Donantes>> getLista_donantes() {

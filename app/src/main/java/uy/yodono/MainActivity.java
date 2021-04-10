@@ -20,6 +20,9 @@ import com.synnapps.carouselview.ImageListener;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.core.view.GravityCompat;
+import androidx.lifecycle.LiveData;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
@@ -30,8 +33,12 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
 
+import java.util.List;
+
 import uy.yodono.BD.AppDatabase;
+import uy.yodono.Entidades.DonanteConSolicitudes;
 import uy.yodono.Entidades.Donantes;
+import uy.yodono.Entidades.Solicitudes;
 import uy.yodono.daos.DonanteDao;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
@@ -42,6 +49,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     Donantes donante_logueado;
     TextView bienvenida;
+
+    private DonantesViewModel donantesViewModel;
+    private LiveData<List<DonanteConSolicitudes>> donanteConSolicitudes;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -88,15 +98,23 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         bienvenida = (TextView) headerLayout.findViewById(R.id.textView);
         bienvenida.setText( bienvenida.getText() + " " + nombre_donante );
 
-        //// Passing each menu ID as a set of Ids because each
-        //// menu should be considered as top level destinations.
-        //mAppBarConfiguration = new AppBarConfiguration.Builder(
-        //        R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow)
-        //        .setDrawerLayout(drawer)
-        //        .build();
-        //NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
-        //NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
-        //NavigationUI.setupWithNavController(navigationView, navController);
+
+        donantesViewModel = new ViewModelProvider(this,
+                ViewModelProvider.AndroidViewModelFactory
+                        .getInstance(this.getApplication()))
+                .get(DonantesViewModel.class);
+
+        donantesViewModel.getSolicitudesDonante( donante_logueado.getCedula() ).observe(this, new Observer<List<DonanteConSolicitudes>>() {
+            @Override
+            public void onChanged(List<DonanteConSolicitudes> donanteConSolicitudes ) {
+                List<Solicitudes> solicitudesDelDonante = donanteConSolicitudes.get(0).solicitudes_donante;
+
+                for ( Solicitudes solicitud : solicitudesDelDonante )
+                {
+                    Log.v("LISTA", solicitud.toString());
+                }
+            }
+        });
 
     }
 
