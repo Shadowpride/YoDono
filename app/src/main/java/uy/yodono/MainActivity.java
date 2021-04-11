@@ -140,6 +140,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         {
             case R.id.nav_solicitud:
                 i = new Intent(MainActivity.this, SolicitudNueva.class);
+                i.putExtra( "Donante", donante_logueado);
                 startActivity(i);
                 break;
 

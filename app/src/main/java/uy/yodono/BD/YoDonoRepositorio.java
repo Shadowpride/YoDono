@@ -24,8 +24,10 @@ public class YoDonoRepositorio {
     public YoDonoRepositorio(Application application) {
         AppDatabase database = AppDatabase.getInstance(application);
         donanteDao = database.getDonanteDao();
+        solicitudesDao = database.getSolicitudesDao();
 
         listaDonantes = donanteDao.getAllDonanantes();
+        listaSolicitudes = solicitudesDao.getAllSolicitudes();
     }
 
     public void insert(Donantes donante) {
@@ -84,4 +86,25 @@ public class YoDonoRepositorio {
         }
     }
 
+    public void insert(Solicitudes solicitud) {
+        new InsertSolicitudAsyncTask(solicitudesDao).execute(solicitud);
+    }
+
+    private static class InsertSolicitudAsyncTask extends AsyncTask<Solicitudes, Void, Void> {
+        private SolicitudesDao solicitudesDao;
+
+        private InsertSolicitudAsyncTask( SolicitudesDao solicitudesDao ) {
+            this.solicitudesDao = solicitudesDao;
+        }
+
+        @Override
+        protected Void doInBackground(Solicitudes... solicitudes) {
+            solicitudesDao.Agregar(solicitudes[0]);
+            return null;
+        }
+    }
+
+    public LiveData<List<Solicitudes>> getSolicitudes() {
+        return solicitudesDao.getAllSolicitudes();
+    }
 }

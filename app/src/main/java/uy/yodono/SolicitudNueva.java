@@ -1,6 +1,7 @@
 package uy.yodono;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.ViewModelProvider;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -25,10 +26,11 @@ public class SolicitudNueva extends AppCompatActivity {
     SolicitudesDao db;
     AppDatabase dataBase;
 
+    private DonantesViewModel donantesViewModel;
+
     EditText text_ci;
     EditText text_nombre;
     EditText text_apellido;
-    EditText text_edad;
     EditText text_fecha_limite;
     EditText text_hospital;
     EditText text_cantidad_donantes;
@@ -38,6 +40,13 @@ public class SolicitudNueva extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_solicitud_nueva);
+
+        Donantes donante_logueado;
+
+        Intent intent = getIntent();
+        Bundle bd = intent.getExtras();
+        donante_logueado = (Donantes) bd.get( "Donante" );
+
 
         Spinner spinner_departamentos = (Spinner) findViewById(R.id.spinner_departamentos);
         // Create an ArrayAdapter using the string array and a default spinner layout
@@ -58,8 +67,10 @@ public class SolicitudNueva extends AppCompatActivity {
         spinner_grupos_sanguineos.setAdapter(adapter_grupos_sanguineos);
 
 
-        dataBase = AppDatabase.getInstance( SolicitudNueva.this );
-        db = dataBase.getSolicitudesDao();
+        donantesViewModel = new ViewModelProvider( this,
+                ViewModelProvider.AndroidViewModelFactory
+                        .getInstance(this.getApplication()))
+                .get(DonantesViewModel.class);dataBase = AppDatabase.getInstance( SolicitudNueva.this );
 
         boton_solicitar_aceptar = (Button)findViewById(R.id.boton_solicitar_aceptar);
 
@@ -70,16 +81,14 @@ public class SolicitudNueva extends AppCompatActivity {
                 text_ci = (EditText)findViewById(R.id.text_registro_cedula);
                 text_nombre = (EditText)findViewById(R.id.text_registro_nombre);
                 text_apellido = (EditText)findViewById(R.id.text_registro_apellido);
-                text_edad = (EditText)findViewById(R.id.text_edad);
                 text_fecha_limite = (EditText)findViewById(R.id.text_fecha_limite);
                 text_hospital = (EditText)findViewById(R.id.text_hospital);
                 text_cantidad_donantes = (EditText)findViewById(R.id.text_donantes);
                 text_motivo = (EditText)findViewById(R.id.text_motivo);
 
-                String cedula = text_ci.getText().toString();
-                String nombre = text_nombre.getText().toString();
-                String apellido = text_apellido.getText().toString();
-                String edad = text_edad.getText().toString();
+                //String cedula = text_ci.getText().toString();
+                //String nombre = text_nombre.getText().toString();
+                //String apellido = text_apellido.getText().toString();
                 String fecha = text_fecha_limite.getText().toString();
                 String hospital = text_hospital.getText().toString();
                 String cantidad = text_cantidad_donantes.getText().toString();
@@ -87,15 +96,22 @@ public class SolicitudNueva extends AppCompatActivity {
                 String departamento = spinner_departamentos.getSelectedItem().toString();
                 String grupo_sanguineo = spinner_grupos_sanguineos.getSelectedItem().toString();
 
-                if (nombre.isEmpty() || apellido.isEmpty() || cedula.isEmpty() || edad.isEmpty() || fecha.isEmpty() || hospital.isEmpty() || cantidad.isEmpty() || motivo.isEmpty() )
+                String cedula = donante_logueado.getCedula();
+                String nombre = donante_logueado.getNombre();
+                String apellido = donante_logueado.getApellido();
+
+                if (nombre.isEmpty() || apellido.isEmpty() || cedula.isEmpty() || fecha.isEmpty() || hospital.isEmpty() || cantidad.isEmpty() || motivo.isEmpty() )
                 {
                     Toast.makeText(SolicitudNueva.this, "Debe completar todos los datos", Toast.LENGTH_SHORT).show();
                 }
                 else
                 {
-                    Solicitudes nueva_solicitud = new Solicitudes( cedula, nombre, apellido, edad, grupo_sanguineo, hospital, fecha, motivo, cantidad, departamento );
-                    db.agregar(nueva_solicitud);
-                    Intent i = new Intent(SolicitudNueva.this, SolicitudNueva.class);
+                    Solicitudes nueva_solicitud = new Solicitudes( cedula, nombre, apellido, grupo_sanguineo, hospital, fecha, motivo, cantidad, departamento );
+
+                    donantesViewModel.insert( nueva_solicitud );
+
+                    Intent i = new Intent(SolicitudNueva.this, MainActivity.class);
+                    i.putExtra("Donante", donante_logueado);
                     startActivity(i);
                     finish();
                 }

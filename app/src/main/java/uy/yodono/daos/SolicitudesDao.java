@@ -1,9 +1,12 @@
 package uy.yodono.daos;
 
+import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
 import androidx.room.Insert;
 import androidx.room.Query;
 import androidx.room.Update;
+
+import java.util.List;
 
 import uy.yodono.Entidades.Solicitudes;
 
@@ -12,13 +15,15 @@ import uy.yodono.Entidades.Solicitudes;
 public interface SolicitudesDao {
 
     @Insert
-    void agregar(Solicitudes solicitud);
+    void Agregar(Solicitudes solicitud);
 
     @Update
-    void actualizar(Solicitudes solicitud);
+    void Actualizar(Solicitudes solicitud);
 
     @Query("SELECT * FROM Solicitudes where cedula = :cedula")
     Solicitudes buscarSolicitudPorCI(String cedula);
 
+    @Query("SELECT * FROM Solicitudes")
+    LiveData<List<Solicitudes>> getAllSolicitudes();
 
 }

@@ -19,7 +19,6 @@ public class Solicitudes {
     private String cedula;
     private String nombre;
     private String apellido;
-    private String edad;
     private String grupo_sanguineo;
 
     // Datos de la solicitud
@@ -30,12 +29,11 @@ public class Solicitudes {
     private String departamento;
 
     public Solicitudes(){}
-    public Solicitudes(String cedula, String nombre, String apellido, String edad, String grupo_sanguineo, String hospital, String fecha_Limite, String motivo, String cantidad_donantes, String departamento ) {
+    public Solicitudes(String cedula, String nombre, String apellido, String grupo_sanguineo, String hospital, String fecha_Limite, String motivo, String cantidad_donantes, String departamento ) {
 
         this.cedula = cedula;
         this.nombre = nombre;
         this.apellido = apellido;
-        this.edad = edad;
         this.grupo_sanguineo = grupo_sanguineo;
         this.hospital = hospital;
         this.fecha_limite = fecha_Limite;
@@ -74,14 +72,6 @@ public class Solicitudes {
 
     public void setApellido(String apellido) {
         this.apellido = apellido;
-    }
-
-    public String getEdad() {
-        return edad;
-    }
-
-    public void setEdad(String edad) {
-        this.edad = edad;
     }
 
     public String getGrupo_sanguineo() {
