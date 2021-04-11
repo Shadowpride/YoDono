@@ -51,6 +51,11 @@
     <string name="solicitar_aceptar">Aceptar</string>
 
     <string name="buscardonante">Buscar donante</string>
+    <string name="titlefechalimite">Fecha límite</string>
+    <string name="titledepartamento">Departamento</string>
+    <string name="titledonantesreq">Donantes requeridos</string>
+    <string name="titlegrupo">Grupo sanguíneo</string>
+    <string name="titleSolicitud">Solicitud</string>
 
 
     <string-array name="array_departamentos">
