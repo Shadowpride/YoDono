@@ -41,4 +41,9 @@ public interface DonanteDao {
     @Transaction
     @Query("SELECT * FROM Donantes WHERE cedula = :cedula")
     LiveData<List<DonanteConSolicitudes>> getSolicitudesDonante(String cedula);
+
+    // query para retornar donantes por depto + grupo
+    @Transaction
+    @Query("SELECT * FROM Donantes WHERE departamento = :departamento AND grupo_sanguineo = :grupo_sanguineo and cedula != :cedula")
+    LiveData<List<Donantes>> getDonantesPorFiltros( String departamento, String grupo_sanguineo, String cedula );
 }

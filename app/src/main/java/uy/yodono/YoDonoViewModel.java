@@ -13,13 +13,13 @@ import uy.yodono.Entidades.DonanteConSolicitudes;
 import uy.yodono.Entidades.Donantes;
 import uy.yodono.Entidades.Solicitudes;
 
-public class DonantesViewModel extends AndroidViewModel {
+public class YoDonoViewModel extends AndroidViewModel {
 
     private YoDonoRepositorio repositorio;
     private LiveData<List<Donantes>> lista_donantes;
     private LiveData<List<Solicitudes>> lista_solicitudes;
 
-    public DonantesViewModel(@NonNull Application application) {
+    public YoDonoViewModel(@NonNull Application application) {
         super(application);
         repositorio = new YoDonoRepositorio(application);
         lista_donantes = repositorio.getAllDonantes();
@@ -44,6 +44,10 @@ public class DonantesViewModel extends AndroidViewModel {
 
     public LiveData<List<Donantes>> getListaOtrosDonantes( String cedula ) {
         return repositorio.getListaOtrosDonantes( cedula );
+    }
+
+    public LiveData<List<Donantes>> getDonantesPorFiltros( String departamento, String grupo_sanguineo, String cedula ) {
+        return repositorio.getDonantesPorFiltro( departamento, grupo_sanguineo, cedula );
     }
 
     public LiveData<List<DonanteConSolicitudes>> getSolicitudesDonante(String cedula ) {

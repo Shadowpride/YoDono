@@ -6,16 +6,9 @@ import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Menu;
-import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
-import com.synnapps.carouselview.CarouselView;
-import com.synnapps.carouselview.ImageListener;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
@@ -30,16 +23,12 @@ import androidx.navigation.ui.NavigationUI;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import androidx.room.Room;
-import androidx.room.RoomDatabase;
 
 import java.util.List;
 
-import uy.yodono.BD.AppDatabase;
 import uy.yodono.Entidades.DonanteConSolicitudes;
 import uy.yodono.Entidades.Donantes;
 import uy.yodono.Entidades.Solicitudes;
-import uy.yodono.daos.DonanteDao;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -50,7 +39,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     Donantes donante_logueado;
     TextView bienvenida;
 
-    private DonantesViewModel donantesViewModel;
+    private YoDonoViewModel yoDonoViewModel;
     private LiveData<List<DonanteConSolicitudes>> donanteConSolicitudes;
 
     @Override
@@ -99,12 +88,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         bienvenida.setText( bienvenida.getText() + " " + nombre_donante );
 
 
-        donantesViewModel = new ViewModelProvider(this,
+        yoDonoViewModel = new ViewModelProvider(this,
                 ViewModelProvider.AndroidViewModelFactory
                         .getInstance(this.getApplication()))
-                .get(DonantesViewModel.class);
+                .get(YoDonoViewModel.class);
 
-        donantesViewModel.getSolicitudesDonante( donante_logueado.getCedula() ).observe(this, new Observer<List<DonanteConSolicitudes>>() {
+        yoDonoViewModel.getSolicitudesDonante( donante_logueado.getCedula() ).observe(this, new Observer<List<DonanteConSolicitudes>>() {
             @Override
             public void onChanged(List<DonanteConSolicitudes> donanteConSolicitudes ) {
                 List<Solicitudes> solicitudesDelDonante = donanteConSolicitudes.get(0).solicitudes_donante;

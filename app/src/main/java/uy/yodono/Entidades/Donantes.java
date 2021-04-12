@@ -20,13 +20,7 @@ public class Donantes implements Serializable {
     private String apellido;
     private String telefono;
     private String departamento;
-
-    public String getGrupo_sanguineo() {
-        return grupo_sanguineo;
-    }
-
     private String grupo_sanguineo;
-
 
     public Donantes(String cedula, String passwd, String email, String nombre, String apellido, String telefono, String departamento, String grupo_sanguineo ) {
         this.cedula = cedula;
@@ -38,9 +32,11 @@ public class Donantes implements Serializable {
         this.grupo_sanguineo = grupo_sanguineo;
     }
 
-
     //Getters and Setters
 
+    public String getGrupo_sanguineo() {
+        return grupo_sanguineo;
+    }
     public String getCedula() {
         return cedula;
     }

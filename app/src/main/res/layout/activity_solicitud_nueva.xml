@@ -31,12 +31,44 @@
             android:orientation="vertical">
 
 
+            <TextView
+                android:id="@+id/text_grupoSanguineo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                android:layout_marginTop="30dp"
+                android:text="Grupo sanguíneo"/>
+
+            <TextView
+                android:id="@+id/text_miGrupoSanguineo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="50dp"
+                android:textAlignment="center"
+                android:text="X"/>
+
+            <TextView
+                android:id="@+id/text_departamento"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                android:layout_marginTop="30dp"
+                android:text="Departamento"/>
+            <TextView
+                android:id="@+id/text_miDepartamento"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="30dp"
+                android:textAlignment="center"
+                android:text="Montevideo"/>
+
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/text_fecha_limite"
                 android:hint="@string/prompt_fecha_limite"
                 android:inputType="number"
+                android:layout_marginTop="20dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"/>
@@ -70,15 +102,6 @@
                 app:layout_constraintTop_toTopOf="parent"/>
 
 
-            <Spinner
-                android:id="@+id/spinner_departamentos"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-
-            <Spinner
-                android:id="@+id/spinner_grupo_sanguineos"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
         </LinearLayout>
 
     </LinearLayout>

@@ -5,32 +5,23 @@ import androidx.lifecycle.ViewModelProvider;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
-import uy.yodono.BD.AppDatabase;
 import uy.yodono.Entidades.Donantes;
 import uy.yodono.Entidades.Solicitudes;
-import uy.yodono.daos.DonanteDao;
-import uy.yodono.daos.SolicitudesDao;
 
 public class SolicitudNueva extends AppCompatActivity {
 
     Button boton_solicitar_aceptar;
 
-    SolicitudesDao db;
-    AppDatabase dataBase;
+    private YoDonoViewModel yoDonoViewModel;
 
-    private DonantesViewModel donantesViewModel;
-
-    EditText text_ci;
-    EditText text_nombre;
-    EditText text_apellido;
     EditText text_fecha_limite;
     EditText text_hospital;
     EditText text_cantidad_donantes;
@@ -47,30 +38,18 @@ public class SolicitudNueva extends AppCompatActivity {
         Bundle bd = intent.getExtras();
         donante_logueado = (Donantes) bd.get( "Donante" );
 
+        TextView miGrupoSanguineo = (TextView)findViewById(R.id.text_miGrupoSanguineo);
+        miGrupoSanguineo.setText(donante_logueado.getGrupo_Sanguineo());
 
-        Spinner spinner_departamentos = (Spinner) findViewById(R.id.spinner_departamentos);
-        // Create an ArrayAdapter using the string array and a default spinner layout
-        ArrayAdapter<CharSequence> adapter_departamentos = ArrayAdapter.createFromResource(this,
-                R.array.array_departamentos, android.R.layout.simple_spinner_item);
-        // Specify the layout to use when the list of choices appears
-        adapter_departamentos.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        // Apply the adapter to the spinner
-        spinner_departamentos.setAdapter(adapter_departamentos);
-
-        Spinner spinner_grupos_sanguineos = (Spinner) findViewById(R.id.spinner_grupo_sanguineos);
-        // Create an ArrayAdapter using the string array and a default spinner layout
-        ArrayAdapter<CharSequence> adapter_grupos_sanguineos = ArrayAdapter.createFromResource(this,
-                R.array.array_grupos_sanguineos, android.R.layout.simple_spinner_item);
-        // Specify the layout to use when the list of choices appears
-        adapter_grupos_sanguineos.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        // Apply the adapter to the spinner
-        spinner_grupos_sanguineos.setAdapter(adapter_grupos_sanguineos);
+        TextView miDepartamento = (TextView)findViewById(R.id.text_miDepartamento);
+        miDepartamento.setText(donante_logueado.getDepartamento());
 
 
-        donantesViewModel = new ViewModelProvider( this,
+        yoDonoViewModel = new ViewModelProvider( this,
                 ViewModelProvider.AndroidViewModelFactory
                         .getInstance(this.getApplication()))
-                .get(DonantesViewModel.class);dataBase = AppDatabase.getInstance( SolicitudNueva.this );
+                .get(YoDonoViewModel.class);
+
 
         boton_solicitar_aceptar = (Button)findViewById(R.id.boton_solicitar_aceptar);
 
@@ -78,27 +57,21 @@ public class SolicitudNueva extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                text_ci = (EditText)findViewById(R.id.text_registro_cedula);
-                text_nombre = (EditText)findViewById(R.id.text_registro_nombre);
-                text_apellido = (EditText)findViewById(R.id.text_registro_apellido);
                 text_fecha_limite = (EditText)findViewById(R.id.text_fecha_limite);
                 text_hospital = (EditText)findViewById(R.id.text_hospital);
                 text_cantidad_donantes = (EditText)findViewById(R.id.text_donantes);
                 text_motivo = (EditText)findViewById(R.id.text_motivo);
 
-                //String cedula = text_ci.getText().toString();
-                //String nombre = text_nombre.getText().toString();
-                //String apellido = text_apellido.getText().toString();
                 String fecha = text_fecha_limite.getText().toString();
                 String hospital = text_hospital.getText().toString();
                 String cantidad = text_cantidad_donantes.getText().toString();
                 String motivo = text_motivo.getText().toString();
-                String departamento = spinner_departamentos.getSelectedItem().toString();
-                String grupo_sanguineo = spinner_grupos_sanguineos.getSelectedItem().toString();
 
                 String cedula = donante_logueado.getCedula();
                 String nombre = donante_logueado.getNombre();
                 String apellido = donante_logueado.getApellido();
+                String departamento = donante_logueado.getDepartamento();
+                String grupo_sanguineo = donante_logueado.getGrupo_Sanguineo();
 
                 if (nombre.isEmpty() || apellido.isEmpty() || cedula.isEmpty() || fecha.isEmpty() || hospital.isEmpty() || cantidad.isEmpty() || motivo.isEmpty() )
                 {
@@ -108,7 +81,7 @@ public class SolicitudNueva extends AppCompatActivity {
                 {
                     Solicitudes nueva_solicitud = new Solicitudes( cedula, nombre, apellido, grupo_sanguineo, hospital, fecha, motivo, cantidad, departamento );
 
-                    donantesViewModel.insert( nueva_solicitud );
+                    yoDonoViewModel.insert( nueva_solicitud );
 
                     Intent i = new Intent(SolicitudNueva.this, MainActivity.class);
                     i.putExtra("Donante", donante_logueado);

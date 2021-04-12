@@ -13,9 +13,7 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-import uy.yodono.BD.AppDatabase;
 import uy.yodono.Entidades.Donantes;
-import uy.yodono.daos.DonanteDao;
 
 public class RegistroPaso_2 extends AppCompatActivity {
 
@@ -26,17 +24,17 @@ public class RegistroPaso_2 extends AppCompatActivity {
 
     Button boton_registro_enviar;
 
-    private DonantesViewModel donantesViewModel;
+    private YoDonoViewModel yoDonoViewModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registro_paso_2);
 
-        donantesViewModel = new ViewModelProvider( this,
+        yoDonoViewModel = new ViewModelProvider( this,
                 ViewModelProvider.AndroidViewModelFactory
                         .getInstance(this.getApplication()))
-                .get(DonantesViewModel.class);
+                .get(YoDonoViewModel.class);
 
         boton_registro_enviar = (Button)findViewById(R.id.boton_registro_enviar);
 
@@ -96,7 +94,7 @@ public class RegistroPaso_2 extends AppCompatActivity {
                     else{
                         Donantes donante_a_registrar = new Donantes(cedula, contrasena, email, nombre, apellido, telefono, departamento, grupo_sanguineo);
 
-                        donantesViewModel.insert( donante_a_registrar );
+                        yoDonoViewModel.insert( donante_a_registrar );
                         Log.v("login", "exito");
                         Intent i = new Intent(RegistroPaso_2.this, MainActivity.class);
                         i.putExtra("Donante", donante_a_registrar );

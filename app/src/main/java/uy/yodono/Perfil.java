@@ -9,8 +9,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.google.android.material.navigation.NavigationView;
-
 import uy.yodono.Entidades.Donantes;
 
 public class Perfil extends AppCompatActivity {
@@ -20,17 +18,17 @@ public class Perfil extends AppCompatActivity {
     Button boton_perfil_editar;
     Button cerrar_sesion;
 
-    private DonantesViewModel donantesViewModel;
+    private YoDonoViewModel yoDonoViewModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_perfil);
 
-        donantesViewModel = new ViewModelProvider( this,
+        yoDonoViewModel = new ViewModelProvider( this,
                 ViewModelProvider.AndroidViewModelFactory
                        .getInstance(this.getApplication()))
-                .get(DonantesViewModel.class);
+                .get(YoDonoViewModel.class);
 
         //Intent intent = getIntent();
         //Bundle bd = intent.getExtras();

@@ -50,6 +50,10 @@ public class YoDonoRepositorio {
         return donanteDao.buscarDonantesNotLogged( cedula );
     }
 
+    public LiveData<List<Donantes>> getDonantesPorFiltro( String departamento, String grupo_sanguineo, String cedula ) {
+        return donanteDao.getDonantesPorFiltros( departamento, grupo_sanguineo, cedula );
+    }
+
     public LiveData<List<DonanteConSolicitudes>> getSolicitudesDonante(String cedula) {
         return donanteDao.getSolicitudesDonante(cedula);
     }

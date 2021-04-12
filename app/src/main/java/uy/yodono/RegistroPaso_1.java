@@ -5,15 +5,12 @@ import androidx.lifecycle.ViewModelProvider;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import uy.yodono.BD.AppDatabase;
 import uy.yodono.Entidades.Donantes;
-import uy.yodono.daos.DonanteDao;
 
 public class RegistroPaso_1 extends AppCompatActivity {
 
@@ -23,7 +20,7 @@ public class RegistroPaso_1 extends AppCompatActivity {
     EditText text_contrasena_confirmacion;
 
 
-    private DonantesViewModel donantesViewModel;
+    private YoDonoViewModel yoDonoViewModel;
 
 
     @Override
@@ -31,10 +28,10 @@ public class RegistroPaso_1 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registro_paso_1);
 
-        donantesViewModel = new ViewModelProvider( this,
+        yoDonoViewModel = new ViewModelProvider( this,
                 ViewModelProvider.AndroidViewModelFactory
                 .getInstance(this.getApplication()))
-                .get(DonantesViewModel.class);
+                .get(YoDonoViewModel.class);
 
 
         boton_registro_siguiente = (Button)findViewById(R.id.boton_registro_siguiente);
@@ -54,7 +51,7 @@ public class RegistroPaso_1 extends AppCompatActivity {
 
                 if ( !cedula.isEmpty() && !contrasena.isEmpty() && contrasena.equals(contrasena_confirmacion) )
                 {
-                    Donantes donante = donantesViewModel.buscarDonante( cedula );
+                    Donantes donante = yoDonoViewModel.buscarDonante( cedula );
                     if ( donante != null )
                     {
                         Toast.makeText(RegistroPaso_1.this, "Usuario ya registrado.", Toast.LENGTH_SHORT).show();

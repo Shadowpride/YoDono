@@ -24,17 +24,17 @@ public class PerfilEditar extends AppCompatActivity {
     EditText text_email;
     EditText text_telefono;
 
-    private DonantesViewModel donantesViewModel;
+    private YoDonoViewModel yoDonoViewModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_perfil_editar);
 
-        donantesViewModel = new ViewModelProvider( this,
+        yoDonoViewModel = new ViewModelProvider( this,
                 ViewModelProvider.AndroidViewModelFactory
                         .getInstance(this.getApplication()))
-                .get(DonantesViewModel.class);
+                .get(YoDonoViewModel.class);
 
         Spinner spinner_departamentos = (Spinner) findViewById(R.id.spinner_departamentos);
         // Create an ArrayAdapter using the string array and a default spinner layout
