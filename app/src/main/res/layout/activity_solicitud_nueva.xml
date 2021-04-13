@@ -18,7 +18,6 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="20dp"
             android:text="Nueva solicitud de donación"
             android:textSize="20dp" />
 
@@ -26,33 +25,32 @@
             android:id="@+id/scroll"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_margin="20dp"
+            android:layout_marginTop="15dp"
             android:gravity="center_horizontal"
             android:orientation="vertical">
 
+                <TextView
+                    android:id="@+id/text_grupoSanguineo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:text="Grupo sanguíneo receptor"/>
 
-            <TextView
-                android:id="@+id/text_grupoSanguineo"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textAlignment="center"
-                android:layout_marginTop="30dp"
-                android:text="Grupo sanguíneo"/>
-
-            <TextView
-                android:id="@+id/text_miGrupoSanguineo"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textSize="50dp"
-                android:textAlignment="center"
-                android:text="X"/>
+                <TextView
+                    android:id="@+id/text_miGrupoSanguineo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="30dp"
+                    android:textAlignment="center"
+                    android:gravity="center_horizontal"
+                    android:text="X"/>
 
             <TextView
                 android:id="@+id/text_departamento"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textAlignment="center"
-                android:layout_marginTop="30dp"
+                android:layout_marginTop="10dp"
                 android:text="Departamento"/>
             <TextView
                 android:id="@+id/text_miDepartamento"
@@ -62,16 +60,21 @@
                 android:textAlignment="center"
                 android:text="Montevideo"/>
 
-            <EditText
+            <TextView
+                android:id="@+id/text_fecha_limite"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/text_fecha_limite"
-                android:hint="@string/prompt_fecha_limite"
-                android:inputType="number"
+                android:textAlignment="center"
                 android:layout_marginTop="20dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"/>
+                android:text="Fecha límite"/>
+            <DatePicker
+                android:id="@+id/fecha_limite"
+                android:datePickerMode="spinner"
+                android:layout_width="wrap_content"
+                android:layout_height="80dp"
+                android:layout_gravity="center_horizontal"
+                android:calendarViewShown="false"
+                />
 
             <EditText
                 android:layout_width="match_parent"
@@ -85,21 +88,25 @@
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/text_donantes"
-                android:hint="@string/prompt_donantes"
-                android:inputType="number"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"/>
-
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
                 android:id="@+id/text_motivo"
                 android:hint="@string/prompt_motivo"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"/>
+
+            <TextView
+                android:id="@+id/text_cantidadDonantes"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                android:layout_marginTop="30dp"
+                android:text="Cantidad de donantes requeridos"/>
+
+            <uy.yodono.HorizontalNumberPicker
+                android:id="@+id/number_donantes"
+                android:layout_marginTop="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
 
 
         </LinearLayout>

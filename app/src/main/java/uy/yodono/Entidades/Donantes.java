@@ -21,15 +21,18 @@ public class Donantes implements Serializable {
     private String telefono;
     private String departamento;
     private String grupo_sanguineo;
+    private boolean disponibilidad;
 
     public Donantes(String cedula, String passwd, String email, String nombre, String apellido, String telefono, String departamento, String grupo_sanguineo ) {
         this.cedula = cedula;
         this.passwd = passwd;
+        this.email = email;
         this.nombre = nombre;
         this.apellido = apellido;
         this.telefono = telefono;
         this.departamento = departamento;
         this.grupo_sanguineo = grupo_sanguineo;
+        this.disponibilidad = true;
     }
 
     //Getters and Setters
@@ -82,7 +85,7 @@ public class Donantes implements Serializable {
     public String getGrupo_Sanguineo() {
         return grupo_sanguineo;
     }
-    public void setGrupo_Sanguineo(String grupo_Sanguineo) {
-        this.grupo_sanguineo = grupo_Sanguineo;
-    }
+    public void setGrupo_Sanguineo(String grupo_Sanguineo) { this.grupo_sanguineo = grupo_Sanguineo; }
+    public boolean isDisponibilidad() { return disponibilidad; }
+    public void setDisponibilidad( Boolean disponibilidad ) { this.disponibilidad = disponibilidad; }
 }

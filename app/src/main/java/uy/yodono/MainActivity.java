@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.Menu;
 import android.widget.TextView;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
 
 import androidx.annotation.NonNull;
@@ -58,14 +59,15 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         drawer.addDrawerListener(toggle);
         toggle.syncState();
 
-        //FloatingActionButton fab = findViewById(R.id.fab);
-        //fab.setOnClickListener(new View.OnClickListener() {
-        //   @Override
-        //    public void onClick(View view)
-        //       Intent i = new Intent(MainActivity.this, SolicitudNueva.class);
-        //       startActivity(i);
-        //    }
-        //});
+        FloatingActionButton fab = findViewById(R.id.fab);
+        fab.setOnClickListener(new View.OnClickListener() {
+           @Override
+            public void onClick(View view) {
+               Intent i = new Intent(MainActivity.this, SolicitudNueva.class);
+               i.putExtra( "Donante", donante_logueado );
+               startActivity(i);
+            }
+        });
 
 
         if ( savedInstanceState == null )
