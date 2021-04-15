@@ -21,7 +21,7 @@ public interface SolicitudesDao {
     void Actualizar(Solicitudes solicitud);
 
     @Query("SELECT * FROM Solicitudes where cedula = :cedula")
-    Solicitudes buscarSolicitudPorCI(String cedula);
+    LiveData<List<Solicitudes>> getSolicitudDeDonante(String cedula);
 
     @Query("SELECT * FROM Solicitudes")
     LiveData<List<Solicitudes>> getAllSolicitudes();

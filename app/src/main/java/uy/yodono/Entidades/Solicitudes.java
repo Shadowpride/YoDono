@@ -42,7 +42,7 @@ public class Solicitudes {
         this.departamento = departamento;
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 

@@ -50,7 +50,7 @@ public class YoDonoViewModel extends AndroidViewModel {
         return repositorio.getDonantesPorFiltro( departamento, grupo_sanguineo, cedula );
     }
 
-    public LiveData<List<DonanteConSolicitudes>> getSolicitudesDonante(String cedula ) {
+    public LiveData<List<Solicitudes>> getSolicitudesDonante(String cedula ) {
         return repositorio.getSolicitudesDonante( cedula );
     }
 
@@ -64,4 +64,6 @@ public class YoDonoViewModel extends AndroidViewModel {
     public LiveData<List<Solicitudes>> getSolicitudes() {
         return repositorio.getSolicitudes();
     }
+
+
 }

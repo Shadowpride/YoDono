@@ -95,18 +95,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                         .getInstance(this.getApplication()))
                 .get(YoDonoViewModel.class);
 
-        yoDonoViewModel.getSolicitudesDonante( donante_logueado.getCedula() ).observe(this, new Observer<List<DonanteConSolicitudes>>() {
-            @Override
-            public void onChanged(List<DonanteConSolicitudes> donanteConSolicitudes ) {
-                List<Solicitudes> solicitudesDelDonante = donanteConSolicitudes.get(0).solicitudes_donante;
-
-                for ( Solicitudes solicitud : solicitudesDelDonante )
-                {
-                    Log.v("LISTA", solicitud.toString());
-                }
-            }
-        });
-
     }
 
     @Override

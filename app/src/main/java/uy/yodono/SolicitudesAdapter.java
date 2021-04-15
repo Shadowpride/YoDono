@@ -28,7 +28,15 @@ public class SolicitudesAdapter extends RecyclerView.Adapter<SolicitudesAdapter.
     @Override
     public void onBindViewHolder(@NonNull SolicitudesHolder holder, int position) {
         Solicitudes solicitud_actual = fragment_home.get(position);
-        holder.textViewFecha.setText(solicitud_actual.getFecha_limite());
+
+        String fecha = solicitud_actual.getFecha_limite();
+        String anio = fecha.substring(0,4);
+        String mes = fecha.substring(4,6);
+        String dia = fecha.substring(6, 8);
+
+
+        holder.textViewId.setText( solicitud_actual.getId().toString() );
+        holder.textViewFecha.setText( dia + "/" + mes + "/" + anio );
         holder.textViewDepartamento.setText(solicitud_actual.getDepartamento());
         holder.textViewGrupo.setText(solicitud_actual.getGrupo_sanguineo());
         holder.textViewDonantes.setText(solicitud_actual.getCantidad_donantes());
@@ -46,6 +54,7 @@ public class SolicitudesAdapter extends RecyclerView.Adapter<SolicitudesAdapter.
     }
 
     class SolicitudesHolder extends RecyclerView.ViewHolder {
+        private TextView textViewId;
         private TextView textViewFecha;
         private TextView textViewGrupo;
         private TextView textViewDepartamento;
@@ -53,6 +62,7 @@ public class SolicitudesAdapter extends RecyclerView.Adapter<SolicitudesAdapter.
 
         public SolicitudesHolder(@NonNull View itemView) {
             super(itemView);
+            textViewId = itemView.findViewById(R.id.solicitudesNumero);
             textViewFecha = itemView.findViewById(R.id.solicitudesFechaLim);
             textViewGrupo = itemView.findViewById(R.id.solicitudesGrupo);
             textViewDepartamento = itemView.findViewById(R.id.solicitudesDepartamento);

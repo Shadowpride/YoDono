@@ -54,10 +54,6 @@ public class YoDonoRepositorio {
         return donanteDao.getDonantesPorFiltros( departamento, grupo_sanguineo, cedula );
     }
 
-    public LiveData<List<DonanteConSolicitudes>> getSolicitudesDonante(String cedula) {
-        return donanteDao.getSolicitudesDonante(cedula);
-    }
-
     public LiveData<List<Donantes>> getAllDonantes() {
         return listaDonantes;
     }
@@ -110,5 +106,9 @@ public class YoDonoRepositorio {
 
     public LiveData<List<Solicitudes>> getSolicitudes() {
         return solicitudesDao.getAllSolicitudes();
+    }
+
+    public LiveData<List<Solicitudes>> getSolicitudesDonante( String cedula ) {
+        return  solicitudesDao.getSolicitudDeDonante( cedula );
     }
 }
