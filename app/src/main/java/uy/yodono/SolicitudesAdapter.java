@@ -35,7 +35,7 @@ public class SolicitudesAdapter extends RecyclerView.Adapter<SolicitudesAdapter.
         String dia = fecha.substring(6, 8);
 
 
-        holder.textViewId.setText( "# " + solicitud_actual.getId().toString() );
+        holder.textViewId.setText( solicitud_actual.getId().toString() );
         holder.textViewFecha.setText( dia + "/" + mes + "/" + anio );
         holder.textViewDepartamento.setText(solicitud_actual.getDepartamento());
         holder.textViewGrupo.setText(solicitud_actual.getGrupo_sanguineo());
