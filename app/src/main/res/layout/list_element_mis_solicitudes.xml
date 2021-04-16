@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/CVMisSolicitudes"
+    android:layout_height="wrap_content"
+    android:layout_width="match_parent"
+    android:animateLayoutChanges="true"
+    app:cardCornerRadius="20dp"
+    app:cardElevation="4dp"
+    app:cardUseCompatPadding="true"
+    android:gravity="center_horizontal"
+    android:layout_marginRight="3dp"
+    android:layout_marginLeft="3dp"
+    android:layout_marginTop="2dp"
+    >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:animateLayoutChanges="true"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/titleSolicitud"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="7dp"
+            android:text="@string/titleSolicitud" />
+
+        <TextView
+            android:id="@+id/misSolicitudesNumero"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="7dp"
+            android:layout_marginTop="6dp"
+            android:layout_toEndOf="@+id/titleSolicitud"
+            android:text="#0001"
+            android:textColor="@color/black" />
+
+        <TextView
+            android:id="@+id/TitleFechaLim"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/titleSolicitud"
+            android:layout_alignStart="@+id/titleSolicitud"
+            android:layout_marginStart="0dp"
+            android:layout_marginTop="11dp"
+            tools:text="@string/titlefechalimite" />
+
+        <TextView
+            android:id="@+id/SolicitudIndividualFechaLim"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/TitleFechaLim"
+            android:layout_alignStart="@+id/TitleFechaLim"
+            android:layout_marginStart="0dp"
+            android:layout_marginTop="0dp"
+            android:textColor="#D32F2F"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            tools:text="01/01/2021" />
+
+        <TextView
+            android:id="@+id/titleDonantesReq"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/TitleFechaLim"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="34dp"
+            android:layout_marginTop="0dp"
+            android:layout_marginEnd="142dp"
+            android:layout_toEndOf="@+id/TitleFechaLim"
+            tools:text="Donantes faltantes" />
+
+        <TextView
+            android:id="@+id/misSolicitudesDonantesReq"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/titleDonantesReq"
+            android:layout_alignStart="@+id/titleDonantesReq"
+            android:layout_marginStart="0dp"
+            android:layout_marginTop="0dp"
+            android:textColor="#D32F2F"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            tools:text="123" />
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/titleDonantesReq"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="-2dp"
+            android:layout_marginEnd="13dp"
+            android:layout_marginBottom="5dp"
+            android:text="Cancelar" />
+
+
+    </RelativeLayout>
+
+
+</androidx.cardview.widget.CardView>

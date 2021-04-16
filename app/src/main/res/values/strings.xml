@@ -56,6 +56,8 @@
     <string name="titledonantesreq">Donantes requeridos</string>
     <string name="titlegrupo">Grupo sanguíneo</string>
     <string name="titleSolicitud">Solicitud</string>
+    <string name="titleHospital">Hospital</string>
+    <string name="titleMotivo">Motivo</string>
 
 
     <string-array name="array_departamentos">
