@@ -124,12 +124,24 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignTop="@+id/titleDonantesReq"
-            android:layout_marginStart="8dp"
+            android:layout_marginStart="30dp"
             android:layout_marginTop="0dp"
             android:layout_toEndOf="@+id/titleDonantesReq"
             android:textColor="@color/black"
             android:textSize="24sp"
-            android:text="123" />
+            android:text="de 12" />
+
+        <TextView
+            android:id="@+id/SolicitudIndividualDonaciones"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/titleDonantesReq"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="0dp"
+            android:layout_toEndOf="@+id/titleDonantesReq"
+            android:textColor="#D32F2F"
+            android:textSize="24sp"
+            android:text="12" />
 
         <TextView
             android:id="@+id/titleHospital"
