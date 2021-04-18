@@ -8,7 +8,7 @@ import androidx.room.Update;
 
 import java.util.List;
 
-import uy.yodono.Entidades.DonanteConSolicitudes;
+import uy.yodono.Entidades.Relaciones.DonanteConSolicitudes;
 import uy.yodono.Entidades.Donantes;
 import uy.yodono.Entidades.Solicitudes;
 

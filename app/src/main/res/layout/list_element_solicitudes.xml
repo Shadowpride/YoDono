@@ -55,7 +55,7 @@
             android:layout_marginTop="7dp"
             android:textColor="#9C9B9B"
             android:textSize="10sp"
-            tools:text="@string/titledepartamento" />
+            android:text="@string/titledepartamento" />
 
         <TextView
             android:id="@+id/solicitudesFechaLim"
@@ -68,7 +68,7 @@
             android:textColor="#D32F2F"
             android:textSize="18sp"
             android:textStyle="bold"
-            tools:text="01/01/2021" />
+            android:text="01/01/2021" />
 
         <TextView
             android:id="@+id/TitleFechaLim"
@@ -80,7 +80,7 @@
             android:layout_marginTop="8dp"
             android:textColor="#9C9B9B"
             android:textSize="10sp"
-            tools:text="@string/titlefechalimite" />
+            android:text="@string/titlefechalimite" />
 
         <TextView
             android:id="@+id/solicitudesNumero"
@@ -105,7 +105,7 @@
             android:layout_marginBottom="-1dp"
             android:textColor="#9C9B9B"
             android:textSize="10sp"
-            tools:text="@string/titlegrupo" />
+            android:text="@string/titlegrupo" />
 
         <TextView
             android:id="@+id/solicitudesGrupo"
@@ -130,7 +130,7 @@
             android:layout_marginEnd="43dp"
             android:textColor="#9C9B9B"
             android:textSize="10sp"
-            tools:text="@string/titledonantesreq" />
+            android:text="@string/titledonantesreq" />
 
         <TextView
             android:id="@+id/solicitudesDonantesReq"
@@ -143,7 +143,7 @@
             android:textColor="#D32F2F"
             android:textSize="18sp"
             android:textStyle="bold"
-            tools:text="123" />
+            android:text="123" />
 
     </RelativeLayout>
 

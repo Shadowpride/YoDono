@@ -16,13 +16,18 @@ import uy.yodono.Entidades.Solicitudes;
 
 public class SolicitudesAdapter extends RecyclerView.Adapter<SolicitudesAdapter.SolicitudesHolder> {
     private List<Solicitudes> fragment_home = new ArrayList<>();
+    private OnSolicitudListener mOnSolicitudListener;
+
+    public SolicitudesAdapter(OnSolicitudListener onSolicitudListener) {
+        this.mOnSolicitudListener = onSolicitudListener;
+    }
 
     @NonNull
     @Override
     public SolicitudesHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View itemView = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.list_element_solicitudes, parent, false);
-        return new SolicitudesHolder(itemView);
+        return new SolicitudesHolder(itemView, mOnSolicitudListener);
     }
 
     @Override
@@ -53,14 +58,17 @@ public class SolicitudesAdapter extends RecyclerView.Adapter<SolicitudesAdapter.
         notifyDataSetChanged();
     }
 
-    class SolicitudesHolder extends RecyclerView.ViewHolder {
+    class SolicitudesHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+
+        OnSolicitudListener onSolicitudListener;
+
         private TextView textViewId;
         private TextView textViewFecha;
         private TextView textViewGrupo;
         private TextView textViewDepartamento;
         private TextView textViewDonantes;
 
-        public SolicitudesHolder(@NonNull View itemView) {
+        public SolicitudesHolder(@NonNull View itemView, OnSolicitudListener onSolicitudListener ) {
             super(itemView);
             textViewId = itemView.findViewById(R.id.solicitudesNumero);
             textViewFecha = itemView.findViewById(R.id.solicitudesFechaLim);
@@ -68,7 +76,19 @@ public class SolicitudesAdapter extends RecyclerView.Adapter<SolicitudesAdapter.
             textViewDepartamento = itemView.findViewById(R.id.solicitudesDepartamento);
             textViewDonantes = itemView.findViewById(R.id.solicitudesDonantesReq);
 
+            this.onSolicitudListener = onSolicitudListener;
+
+            itemView.setOnClickListener( this );
         }
+
+        @Override
+        public void onClick(View v) {
+            onSolicitudListener.onSolicitudClick( getAdapterPosition());
+        }
+    }
+
+    public interface OnSolicitudListener {
+        void onSolicitudClick( int posicion );
     }
 }
 

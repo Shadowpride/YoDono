@@ -3,14 +3,18 @@ package uy.yodono.Entidades;
 import androidx.room.Entity;
 import androidx.room.ForeignKey;
 import androidx.room.PrimaryKey;
+import androidx.room.Relation;
 import androidx.room.TypeConverter;
 
+import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
+import uy.yodono.YoDonoViewModel;
+
 //Creo la entidad(Tabla) Solicitudes
 @Entity
-public class Solicitudes {
+public class Solicitudes implements Serializable {
 
     @PrimaryKey(autoGenerate = true)
     private int id;

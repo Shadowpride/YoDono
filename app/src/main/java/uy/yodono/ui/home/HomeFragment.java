@@ -24,10 +24,11 @@ import uy.yodono.DonantesAdapter;
 import uy.yodono.Entidades.Donantes;
 import uy.yodono.Entidades.Solicitudes;
 import uy.yodono.R;
+import uy.yodono.SolicitudIndividual;
 import uy.yodono.SolicitudesAdapter;
 import uy.yodono.YoDonoViewModel;
 
-public class HomeFragment extends Fragment {
+public class HomeFragment extends Fragment implements SolicitudesAdapter.OnSolicitudListener {
 
     Intent intent;
     SolicitudesAdapter adapter;
@@ -45,9 +46,7 @@ public class HomeFragment extends Fragment {
         //recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
-        lista_solicitudes = new ArrayList<>();
-
-        adapter = new SolicitudesAdapter();
+        adapter = new SolicitudesAdapter( this );
         recyclerView.setAdapter(adapter);
         recyclerView.setHasFixedSize(true);
 
@@ -64,16 +63,25 @@ public class HomeFragment extends Fragment {
         actualizar_lista_solicitudes();
         recyclerView.setAdapter(adapter);
 
-
         return view;
     }
 
     public void actualizar_lista_solicitudes() {
-        yoDonoViewModel.getSolicitudes().observe(getViewLifecycleOwner(), new Observer<List<Solicitudes>>() {
+        yoDonoViewModel.getSolicitudesNotLogueado( donante_logueado.getCedula() ).observe(getViewLifecycleOwner(), new Observer<List<Solicitudes>>() {
             @Override
             public void onChanged(List<Solicitudes> solicitudes) {
+                lista_solicitudes = solicitudes;
                 adapter.setSolicitudes( solicitudes );
             }
         });
+    }
+
+    @Override
+    public void onSolicitudClick(int posicion) {
+        Solicitudes solicitud_clickeada = lista_solicitudes.get( posicion );
+        Intent intent = new Intent( this.getContext(), SolicitudIndividual.class);
+        intent.putExtra( "Solicitud", solicitud_clickeada );
+        intent.putExtra( "Donante", donante_logueado );
+        startActivity( intent );
     }
 }

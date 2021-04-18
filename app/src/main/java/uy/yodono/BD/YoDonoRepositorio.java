@@ -7,10 +7,11 @@ import androidx.lifecycle.LiveData;
 
 import java.util.List;
 
-import uy.yodono.Entidades.DonanteConSolicitudes;
 import uy.yodono.Entidades.Donantes;
+import uy.yodono.Entidades.Relaciones.SolicitudConDonantes;
 import uy.yodono.Entidades.Solicitudes;
 import uy.yodono.daos.DonanteDao;
+import uy.yodono.daos.SolicitudConDonantesDao;
 import uy.yodono.daos.SolicitudesDao;
 
 public class YoDonoRepositorio {
@@ -21,13 +22,31 @@ public class YoDonoRepositorio {
     private SolicitudesDao solicitudesDao;
     private LiveData<List<Solicitudes>> listaSolicitudes;
 
+    private SolicitudConDonantesDao solicitudConDonantesDao;
+    private List<SolicitudConDonantes> listaSolicitudConDonantes;
+
     public YoDonoRepositorio(Application application) {
         AppDatabase database = AppDatabase.getInstance(application);
         donanteDao = database.getDonanteDao();
         solicitudesDao = database.getSolicitudesDao();
+        solicitudConDonantesDao = database.getSolicitudesConDonantesDao();
 
         listaDonantes = donanteDao.getAllDonanantes();
         listaSolicitudes = solicitudesDao.getAllSolicitudes();
+
+        listaSolicitudConDonantes = solicitudConDonantesDao.getDonaciones();
+    }
+
+    public List<SolicitudConDonantes> getDonaciones() {
+        return this.listaSolicitudConDonantes;
+    }
+
+    public List<SolicitudConDonantes> getDonaciones( Integer id ) {
+        return solicitudConDonantesDao.getDonaciones( id );
+    }
+
+    public void agregarDonacion( SolicitudConDonantes solicitudConDonantes ) {
+        solicitudConDonantesDao.agregar( solicitudConDonantes );
     }
 
     public void insert(Donantes donante) {
@@ -110,5 +129,9 @@ public class YoDonoRepositorio {
 
     public LiveData<List<Solicitudes>> getSolicitudesDonante( String cedula ) {
         return  solicitudesDao.getSolicitudDeDonante( cedula );
+    }
+
+    public LiveData<List<Solicitudes>> getSolicitudesNotLogueado( String cedula ) {
+        return solicitudesDao.getSolicitudesNotLogueado( cedula );
     }
 }

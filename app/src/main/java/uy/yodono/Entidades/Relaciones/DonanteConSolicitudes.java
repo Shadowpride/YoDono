@@ -1,9 +1,13 @@
-package uy.yodono.Entidades;
+package uy.yodono.Entidades.Relaciones;
 
 import androidx.room.Embedded;
 import androidx.room.Relation;
 
 import java.util.List;
+
+import uy.yodono.Entidades.Donantes;
+import uy.yodono.Entidades.Solicitudes;
+
 //Creamos la clase DonanteConSolicitudes que va a representar la relacion entre un donantes y sus solicitudes
 public class DonanteConSolicitudes {
 

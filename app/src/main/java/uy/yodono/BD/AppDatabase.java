@@ -10,12 +10,14 @@ import androidx.room.TypeConverters;
 
 import uy.yodono.Entidades.Converters;
 import uy.yodono.Entidades.Donantes;
+import uy.yodono.Entidades.Relaciones.SolicitudConDonantes;
 import uy.yodono.Entidades.Solicitudes;
 import uy.yodono.daos.DonanteDao;
+import uy.yodono.daos.SolicitudConDonantesDao;
 import uy.yodono.daos.SolicitudesDao;
 
 
-@Database(entities = {Donantes.class, Solicitudes.class}, version = 6)
+@Database(entities = { Donantes.class, Solicitudes.class, SolicitudConDonantes.class }, version = 9)
 @TypeConverters({Converters.class})
 public abstract class AppDatabase extends RoomDatabase {
 
@@ -24,6 +26,7 @@ public abstract class AppDatabase extends RoomDatabase {
 
     public abstract DonanteDao getDonanteDao();
     public abstract SolicitudesDao getSolicitudesDao();
+    public abstract SolicitudConDonantesDao getSolicitudesConDonantesDao();
 
     // la DB es un singleton
     public static synchronized AppDatabase getInstance(Context context ) {
