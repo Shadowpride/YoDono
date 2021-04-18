@@ -10,6 +10,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.List;
 
@@ -24,6 +25,7 @@ public class SolicitudIndividual extends AppCompatActivity {
     private TextView text_departamento;
     private TextView text_grupo;
     private TextView text_donantes_requeridos;
+    private TextView text_cantidad_donaciones;
     private TextView text_hospital;
     private TextView text_motivo;
     private Button boton_participar;
@@ -58,8 +60,12 @@ public class SolicitudIndividual extends AppCompatActivity {
         text_grupo = (TextView)findViewById(R.id.SolicitudIndividualGrupo);
         text_grupo.setText( solicitud.getGrupo_sanguineo());
 
+        text_cantidad_donaciones = (TextView)findViewById(R.id.SolicitudIndividualDonaciones);
+        text_cantidad_donaciones.setText( cantidadDonaciones( solicitud.getId() ).toString() );
+
         text_donantes_requeridos = (TextView)findViewById(R.id.SolicitudIndividualDonantesReq);
-        text_donantes_requeridos.setText( solicitud.getCantidad_donantes());
+        text_donantes_requeridos.setText( "de " + solicitud.getCantidad_donantes());
+
 
         text_hospital = (TextView)findViewById(R.id.SolicitudIndividualHospital);
         text_hospital.setText( solicitud.getHospital());
@@ -80,13 +86,18 @@ public class SolicitudIndividual extends AppCompatActivity {
                                 donante_logueado.getCedula()));
 
                 deshabilitarBotonParticipar();
-        }});
+            }});
     }
 
     private void deshabilitarBotonParticipar() {
         boton_participar.setEnabled( false );
         boton_participar.setText( "Ya participa" );
         boton_participar.setBackgroundColor(Color.LTGRAY );
+    }
+
+
+    private Integer cantidadDonaciones( Integer id ) {
+        return yoDonoViewModel.getDonaciones( id ).size();
     }
 
     private Boolean puedeParticipar( Integer id ) {
@@ -96,16 +107,12 @@ public class SolicitudIndividual extends AppCompatActivity {
         Integer cantidad_donantes_necesarios = Integer.parseInt( solicitud.getCantidad_donantes() );
         String cedula_donante = donante_logueado.getCedula();
 
-        Integer contador = 0;
         Boolean ya_participa = false;
 
         for ( SolicitudConDonantes donacion : solicitudConDonantes )
         {
-            Log.v("DONACION", donacion.id + " -- " + donacion.cedula );
-            contador += 1;
             if ( donacion.cedula.compareTo( cedula_donante ) == 0 )
             {
-                Log.v( "DONACION", "Siii");
                 ya_participa = true;
             }
         }
@@ -113,7 +120,7 @@ public class SolicitudIndividual extends AppCompatActivity {
         {
             return false;
         }
-        else if ( contador < cantidad_donantes_necesarios )
+        else if ( solicitudConDonantes.size() < cantidad_donantes_necesarios )
         {
             return true;
         }
