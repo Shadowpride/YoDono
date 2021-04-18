@@ -2,6 +2,7 @@ package uy.yodono;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Menu;
@@ -14,6 +15,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.core.view.GravityCompat;
 import androidx.lifecycle.LiveData;
+import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
@@ -25,8 +27,9 @@ import androidx.appcompat.widget.Toolbar;
 
 import java.util.List;
 
-import uy.yodono.Entidades.Relaciones.DonanteConSolicitudes;
 import uy.yodono.Entidades.Donantes;
+import uy.yodono.Entidades.Solicitudes;
+import uy.yodono.ui.home.HomeFragment;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -38,7 +41,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     TextView bienvenida;
 
     private YoDonoViewModel yoDonoViewModel;
-    private LiveData<List<DonanteConSolicitudes>> donanteConSolicitudes;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -130,6 +132,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 i.putExtra( "Donante", donante_logueado );
                 startActivity(i);
                 break;
+            case R.id.nav_centros:
+                getSupportFragmentManager().beginTransaction().replace(R.id.ContentMain,new MapaCentros()).commit();
+                break;
+            case R.id.nav_home:
+                getSupportFragmentManager().beginTransaction().replace(R.id.ContentMain,new HomeFragment()).commit();
         }
 
         return true;
