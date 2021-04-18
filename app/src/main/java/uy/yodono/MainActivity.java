@@ -137,6 +137,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 break;
             case R.id.nav_home:
                 getSupportFragmentManager().beginTransaction().replace(R.id.ContentMain,new HomeFragment()).commit();
+                break;
+            case R.id.nav_info:
+                getSupportFragmentManager().beginTransaction().replace(R.id.ContentMain,new Info()).commit();
+                break;
         }
 
         return true;
