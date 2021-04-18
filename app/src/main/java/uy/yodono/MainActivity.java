@@ -30,6 +30,7 @@ import java.util.List;
 import uy.yodono.Entidades.DonanteConSolicitudes;
 import uy.yodono.Entidades.Donantes;
 import uy.yodono.Entidades.Solicitudes;
+import uy.yodono.ui.home.HomeFragment;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -133,6 +134,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 i.putExtra( "Donante", donante_logueado );
                 startActivity(i);
                 break;
+            case R.id.nav_centros:
+                getSupportFragmentManager().beginTransaction().replace(R.id.ContentMain,new MapaCentros()).commit();
+                break;
+            case R.id.nav_home:
+                getSupportFragmentManager().beginTransaction().replace(R.id.ContentMain,new HomeFragment()).commit();
         }
 
         return true;
